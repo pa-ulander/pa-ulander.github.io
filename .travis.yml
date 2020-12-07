@@ -1,14 +1,18 @@
+version: ~> 1.0
 language: node_js
 node_js:
   - '12'
+
 before_script:
   - npm install -g gatsby-cli  
+script:
+  - "npm run test"
+  - "npm run build"
 cache:
   directories:
     - public
+    - node_modules
     - .cache
-script:
-  - npm run build 
 deploy:
   provider: pages
   skip-cleanup: true
@@ -17,7 +21,4 @@ deploy:
   keep-history: true
   target_branch: gh-pages
   on:
-    branch: main
-
-after_failure:
-  - cat build.failure.txt    
+    branch: main    
