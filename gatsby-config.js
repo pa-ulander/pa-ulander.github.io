@@ -1,9 +1,9 @@
 module.exports = {
   pathPrefix: '',
   siteMetadata: {
-    title: 'A Freelance developers blog',
+    title: 'Yet another freelance developers blog',
     author: {
-      name: 'PA',
+      name: 'pa@kabelkultur.se',
       summary: 'A very nice fellow that created this blog',
     },
     description: 'Learning Gatsby and other things',
