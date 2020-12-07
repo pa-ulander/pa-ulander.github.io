@@ -2,13 +2,14 @@
 language: node_js
 node_js:
   - '12'
+before_script:
+  - npm install -g gatsby-cli  
 cache:
-  yarn: true
   directories:
     - public
     - .cache
 script:
-  - yarn build # Generate static HTML files
+  - npm run build # Generate static HTML files
 
 # Here is the magic part
 deploy:
@@ -23,7 +24,7 @@ deploy:
   # Incremental commit to keep old build/files from previous deployments
   keep-history: true
   # Git branch on which it should deploy (master, gh-pages, foo...)
-  target_branch: gh-pages
+  target_branch: main
   on:
     # Which branch on commit/push will trigger deployment
     branch: main
