@@ -17,7 +17,7 @@ deploy:
   keep-history: true
   target_branch: main
   on:
-    branch: main
+    branch: gh-pages
 
 after_failure:
   - cat build.failure.txt    
