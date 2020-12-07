@@ -4,7 +4,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Container from '../components/Container'
 
 const BlogPosts = ({ data, pageContext }) => {
-    console.log('pageContext', pageContext)
   const { frontmatter, body } = data.mdx
   const { previous, next } = pageContext
   return (
