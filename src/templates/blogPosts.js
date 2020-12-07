@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import Container from '../components/container'
+import Container from '../components/Container'
 
-const blogPosts = ({ data, pageContext }) => {
+const BlogPosts = ({ data, pageContext }) => {
     console.log('pageContext', pageContext)
   const { frontmatter, body } = data.mdx
   const { previous, next } = pageContext
@@ -36,7 +36,7 @@ const blogPosts = ({ data, pageContext }) => {
   )
 }
 
-export default blogPosts
+export default BlogPosts
 
 export const query = graphql`
   query PostBySlug($slug: String!) {

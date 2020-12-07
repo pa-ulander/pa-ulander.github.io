@@ -7,7 +7,7 @@ before_script:
   - npm install -g gatsby-cli  
 script:
   - "npm run test"
-  
+  - "npm run build"
 cache:
   directories:
     - public
@@ -21,7 +21,4 @@ deploy:
   keep-history: true
   target_branch: gh-pages
   on:
-    branch: main
-
-after_success:
-  - "npm run build"    
+    branch: main    

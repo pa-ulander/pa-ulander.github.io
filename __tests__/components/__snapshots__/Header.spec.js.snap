@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render correctly 1`] = `
+<div
+  className="sticky-nav"
+>
+  <a
+    className="sticky-nav-button"
+    href="/"
+  >
+    Home
+  </a>
+  <div
+    className="sticky-nav-stack"
+  >
+    <a
+      className="sticky-nav-button"
+      href="/"
+    >
+      Blog
+    </a>
+    <a
+      className="sticky-nav-button"
+      href="/"
+    >
+      Contact
+    </a>
+    <a
+      className="sticky-nav-button"
+      href="/"
+    >
+      About Us
+    </a>
+  </div>
+</div>
+`;
