@@ -4,9 +4,11 @@
   "description": "Personal website and bloggery thing",
   "main": "index.js",
   "scripts": {
-    "dev": "gatsby develop",
-    "test": "echo \"error: no test specified\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/pa-ulander/pa-ulander.github.io.git"
+    "develop": "gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/pa-ulander/pa-ulander.github.io.git",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "test": "echo 'Run your tests here'"
   },
   "repository": {
     "type": "git",
