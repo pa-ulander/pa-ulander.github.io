@@ -1,0 +1,27 @@
+{
+  "name": "pa-ulander.github.io",
+  "version": "1.0.0",
+  "description": "Personal website and bloggery thing",
+  "main": "index.js",
+  "scripts": {
+    "start": "gatvsy develop",
+    "test": "echo \"error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pa-ulander/pa-ulander.github.io.git"
+  },
+  "keywords": [],
+  "author": "pa-ulander",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/pa-ulander/pa-ulander.github.io/issues"
+  },
+  "homepage": "https://github.com/pa-ulander/pa-ulander.github.io#readme",
+  "dependencies": {
+    "gatsby": "^2.28.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0"
+  }
+}
