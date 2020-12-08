@@ -6,7 +6,7 @@ const Container = ({ children }) => {
     <div>
       <div className="container">
         <Header />
-        <main className="main">{children}</main>
+        {children}
       </div>
     </div>
   )

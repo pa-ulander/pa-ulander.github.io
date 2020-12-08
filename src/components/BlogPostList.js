@@ -4,8 +4,7 @@ import { Link } from 'gatsby'
 const BlogPostList = ({ data }) => {
   const posts = data
   return (
-    <>
-      <h1>Blog Posts</h1>
+    <div className="cards">
       {posts.map((post, idx) => {
         const title = post.frontmatter.title || post.fields.slug
         return (
@@ -18,7 +17,7 @@ const BlogPostList = ({ data }) => {
           </Link>
         )
       })}
-    </>
+    </div>
   )
 }
 

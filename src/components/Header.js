@@ -11,10 +11,7 @@ const Header = () => {
           Blog
         </a>
         <a href="/" className="sticky-nav-button">
-          Contact
-        </a>
-        <a href="/" className="sticky-nav-button">
-          About Us
+          CV
         </a>
       </div>
     </div>

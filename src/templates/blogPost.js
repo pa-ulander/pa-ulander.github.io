@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Container from '../components/Container'
 
-const BlogPosts = ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext }) => {
   const { frontmatter, body } = data.mdx
   const { previous, next } = pageContext
   return (
@@ -35,7 +35,7 @@ const BlogPosts = ({ data, pageContext }) => {
   )
 }
 
-export default BlogPosts
+export default BlogPost
 
 export const query = graphql`
   query PostBySlug($slug: String!) {
