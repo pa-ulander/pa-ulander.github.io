@@ -1,25 +1,25 @@
 import React from 'react'
+// import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import BlogPostList from '../components/BlogPostList'
 import SEO from '../components/Seo'
 
-const Home = ({ data }) => {
+const Cv = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
-
+  console.log('data', data)
   return (
     <Layout>
       <SEO title={siteTitle} description={siteDescription} />
-      <BlogPostList data={data.allMdx.nodes} />
+      <h1>CV</h1>
     </Layout>
   )
 }
 
-export default Home
+export default Cv
 
-export const HomeQuery = graphql`
-  query getPostsAndMetadata {
+export const pageQuery = graphql`
+  query getCvAndMetadata {
     site {
       siteMetadata {
         title
@@ -36,7 +36,7 @@ export const HomeQuery = graphql`
     }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      filter: { frontmatter: { pageType: { eq: "cv" } } }
     ) {
       nodes {
         excerpt
@@ -44,16 +44,7 @@ export const HomeQuery = graphql`
         frontmatter {
           date(formatString: "Do MMMM YYYY")
           title
-          slug
-          path
           description
-          featuredImage {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }          
         }
       }
     }
