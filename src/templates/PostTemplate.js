@@ -18,7 +18,7 @@ const PostTemplate = ({ data, pageContext }) => {
       {previous === false ? null : (
         <>
           {previous && (
-            <Link to={`${previous.fields.slug}`}>
+            <Link to={`${previous.frontmatter.path}`}>
               <button className="previous-next-button">
                 {previous.frontmatter.title}
               </button>
@@ -29,7 +29,7 @@ const PostTemplate = ({ data, pageContext }) => {
       {next === false ? null : (
         <>
           {next && (
-            <Link to={`${next.fields.slug}`}>
+            <Link to={`${next.frontmatter.path}`}>
               <button className="previous-next-button">
                 {next.frontmatter.title}
               </button>
