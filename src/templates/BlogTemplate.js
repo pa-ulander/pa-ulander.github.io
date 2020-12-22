@@ -1,77 +1,59 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
+import BlogPostList from '../components/BlogPostList'
 
-const BlogTemplate = ({ data }) => {
-  const posts = data
+const Blog = ({ data }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const siteDescription = data.site.siteMetadata.description
 
   return (
-    <div className="cards">
-      templates/blog-home-page.js
-      {posts.map((post, idx) => {
-        const title = post.frontmatter.title || post.fields.slug
-        let featuredImgFluid =
-          post.frontmatter.featuredImage.childImageSharp.fluid
-        // console.log('post', post.frontmatter.featuredImage)
-        return (
-          <Link
-            className="card-link"
-            to={post.fields.slug}
-            key={`card-link-${idx}`}>
-            <div className="card" key={`card-${idx}`}>
-              <div className="card-image-wrap">
-                <Img fluid={featuredImgFluid} className="card-image" />
-              </div>
-              <h1 className="card-title" key={`card-title-${idx}`}>
-                {title}
-              </h1>
-              <p className="card-description" key={`card-description-${idx}`}>
-                {post.frontmatter.description}
-              </p>
-              <p className="card-date" key={`card-date-${idx}`}>
-                {post.frontmatter.date}
-              </p>
-            </div>
-          </Link>
-        )
-      })}
-    </div>
+    <Layout>
+      <SEO title={siteTitle} description={siteDescription} />
+      <BlogPostList data={data.allMdx.nodes} />
+    </Layout>
   )
 }
 
-export default BlogTemplate
+export default Blog
 
-// export const query = graphql`
-//   {
-//     allMdx(
-//       sort: { fields: [frontmatter___date], order: DESC }
-//       filter: {
-//         frontmatter: {
-//           published: { eq: true }
-//           templateKey: { eq: "blog-post" }
-//         }
-//       }
-//     ) {
-//       nodes {
-//         frontmatter {
-//           title
-//           templateKey
-//           slug
-//           path
-//           featuredText
-//           featuredImage {
-//             childImageSharp {
-//               fluid(maxWidth: 500, quality: 50) {
-//                 src
-//               }
-//             }
-//           }
-//           tags
-//         }
-//         fields {
-//           slug
-//         }
-//       }
-//     }
-//   }
-// `
+export const PageQuery = graphql`
+query getPosts {
+  site {
+    siteMetadata {
+      title
+      social {
+        twitter
+      }
+      siteUrl
+      description
+      author {
+        name
+        summary
+      }
+    }
+  }
+  allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
+    nodes {
+      slug
+      frontmatter {
+        date(formatString: "Do MMMM YYYY")
+        title
+        description
+        templateKey
+        featuredText
+        path
+        featuredImage {
+          id
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`

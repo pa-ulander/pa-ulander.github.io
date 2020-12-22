@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Container from '../../src/components/Container'
+import Layout from '../../src/components/Layout'
 
-describe('Container component', () => {
+describe('Layout component', () => {
   it('should render correctly', () => {
-    const component = shallow(<Container />)
+    const component = shallow(<Layout />)
     expect(component).toMatchSnapshot()
   })
 })

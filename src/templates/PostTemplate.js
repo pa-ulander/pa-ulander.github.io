@@ -4,8 +4,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/Layout'
 
 const PostTemplate = ({ data, pageContext }) => {
-  console.log('data', data)
-  console.log('pageContext', pageContext)
+  // console.log('data', data)
+  // console.log('pageContext', pageContext)
   const { frontmatter, body } = data.mdx
   const { previous, next } = pageContext
   return (
@@ -50,6 +50,9 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "Do MMMM YYYY")
+        description
+        templateKey
+        featuredText
       }
     }
   }

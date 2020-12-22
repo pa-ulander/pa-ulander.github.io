@@ -1,6 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import SEO from '../components/Seo'
+import HeaderNav from '../components/HeaderNav'
+
 const NotFoundPage = () => {
   const wrapper = {
     width: `100vw`,
@@ -18,6 +20,7 @@ const NotFoundPage = () => {
   return (
     <>
       <SEO title="404: Not found" />
+      <HeaderNav />
       <div style={wrapper}>
         <div style={container}>
           <h1 style={h1404}>404</h1>

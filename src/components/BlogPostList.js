@@ -9,9 +9,6 @@ const BlogPostList = ({ data }) => {
     <div className="cards">
       {posts.map((post, idx) => {
         const title = post.frontmatter.title || post.fields.slug
-        let featuredImgFluid =
-          post.frontmatter.featuredImage.childImageSharp.fluid
-        // console.log('post', post.frontmatter.featuredImage)
         return (
           <Link
             className="card-link"
@@ -19,7 +16,10 @@ const BlogPostList = ({ data }) => {
             key={`card-link-${idx}`}>
             <div className="card" key={`card-${idx}`}>
               <div className="card-image-wrap">
-                <Img fluid={featuredImgFluid} className="card-image" />
+                <Img
+                  fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+                  className="card-image"
+                />
               </div>
               <h1 className="card-title" key={`card-title-${idx}`}>
                 {title}

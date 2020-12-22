@@ -1,15 +1,26 @@
-const { createFilePath } = require('gatsby-source-filesystem')
-const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem');
+const path = require('path');
 
-exports.createPages = ({ actions, graphql, reporting}) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve('./src/templates/BlogTemplate.js')
   const postTemplate = path.resolve('./src/templates/PostTemplate.js')
   const cvTemplate = path.resolve('./src/templates/CvTemplate.js')
+  const homeTemplate = path.resolve('./src/templates/HomeTemplate.js')
 
   return graphql(`
     {
-      allMdx(
+      blog: allMdx(
+        filter: { frontmatter: { templateKey: { eq: "blog-home" } } }
+      ) {
+        nodes {
+          frontmatter {
+            path
+            slug
+          }
+        }
+      }
+      posts: allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
       ) {
@@ -19,19 +30,25 @@ exports.createPages = ({ actions, graphql, reporting}) => {
             title
             description
             templateKey
-            featuredText
             path
             slug
-            featuredImage {
-              id
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  src
-                }
-              }
-            }
           }
-          fields {
+        }
+      }
+      cv: allMdx(filter: { frontmatter: { templateKey: { eq: "cv-page" } } }) {
+        nodes {
+          frontmatter {
+            path
+            slug
+          }
+        }
+      }
+      home: allMdx(
+        filter: { frontmatter: { templateKey: { eq: "home-page" } } }
+      ) {
+        nodes {
+          frontmatter {
+            path
             slug
           }
         }
@@ -42,7 +59,34 @@ exports.createPages = ({ actions, graphql, reporting}) => {
       throw result.errors
     }
 
-    const posts = result.data.allMdx.nodes
+    const home = result.data.home.nodes[0]
+    const blog = result.data.blog.nodes[0]
+    const posts = result.data.posts.nodes
+    const cv = result.data.cv.nodes[0]
+
+    createPage({
+      path: home.frontmatter.path,
+      component: homeTemplate,
+      context: {
+        slug: home.frontmatter.slug,
+      },
+    })
+
+    createPage({
+      path: blog.frontmatter.path,
+      component: blogTemplate,
+      context: {
+        slug: blog.frontmatter.slug,
+      },
+    })
+
+    createPage({
+      path: cv.frontmatter.path,
+      component: cvTemplate,
+      context: {
+        slug: cv.frontmatter.slug,
+      },
+    })
 
     posts.forEach((post, idx) => {
       const previous = idx === posts.length - 1 ? null : posts[idx + 1]

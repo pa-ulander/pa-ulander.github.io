@@ -1,7 +1,8 @@
 import React from 'react'
+// import { graphql } from 'gatsby'
 import Layout from './Layout'
 import BlogPostList from './BlogPostList'
-import SEO from './Seo'
+import SEO from '../components/Seo'
 
 const HomeTemplate = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -10,6 +11,7 @@ const HomeTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={siteTitle} description={siteDescription} />
+      haome template
       <BlogPostList data={data.allMdx.nodes} />
     </Layout>
   )
@@ -18,7 +20,7 @@ const HomeTemplate = ({ data }) => {
 export default HomeTemplate
 
 // export const pageQuery = graphql`
-//   query getPostsAndMetadata {
+//   query getHomePageData {
 //     site {
 //       siteMetadata {
 //         title

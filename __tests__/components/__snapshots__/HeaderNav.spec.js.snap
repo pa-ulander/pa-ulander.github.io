@@ -4,33 +4,31 @@ exports[`Header component should render correctly 1`] = `
 <div
   className="sticky-nav"
 >
-  <a
+  <mockConstructor
     className="sticky-nav-button"
-    href="/"
+    to="/"
   >
     Home
-  </a>
+  </mockConstructor>
   <div
     className="sticky-nav-stack"
   >
-    <a
+    <mockConstructor
       className="sticky-nav-button"
-      href="/"
+      to="/blog"
     >
       Blog
-    </a>
-    <a
+    </mockConstructor>
+    <mockConstructor
       className="sticky-nav-button"
-      href="/"
+      to="/cv"
     >
-      Contact
-    </a>
-    <a
-      className="sticky-nav-button"
-      href="/"
-    >
-      About Us
-    </a>
+      Cv
+    </mockConstructor>
   </div>
+  <ToggleDarkMode
+    checked={true}
+    onChange={[Function]}
+  />
 </div>
 `;

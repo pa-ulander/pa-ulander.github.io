@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Template should render a blog post with mdx 1`] = `
+Array [
+  <div
+    className="sticky-nav"
+  >
+    <a
+      className="sticky-nav-button"
+      href="/"
+    >
+      Home
+    </a>
+    <div
+      className="sticky-nav-stack"
+    >
+      <a
+        className="sticky-nav-button"
+        href="/blog"
+      >
+        Blog
+      </a>
+      <a
+        className="sticky-nav-button"
+        href="/cv"
+      >
+        Cv
+      </a>
+    </div>
+    <div
+      className="dark-button"
+    >
+      <input
+        checked={true}
+        id="toggle"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        htmlFor="toggle"
+      />
+    </div>
+  </div>,
+  <div
+    className="container"
+  >
+    <h1
+      className="post-heading"
+    >
+      Fourth post has bears
+    </h1>
+    <p
+      className="post-date"
+    >
+      4th December 2020
+    </p>
+    <article
+      className="post-body"
+    >
+      <div>
+        function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i &lt; sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i &lt; sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) &gt;= 0) continue; target[key] = source[key]; } return target; }
+
+/* @jsxRuntime classic */
+
+/* @jsx mdx */
+var _frontmatter = {
+  "title": "Fourth post has bears",
+  "description": "Fourth post meta description",
+  "date": "2020-12-04T00:00:00.000Z",
+  "featuredImage": "./image.jpeg",
+  "featuredText": "Fourth post featured text",
+  "pageType": "blog",
+  "templateKey": "blog-post",
+  "published": true,
+  "slug": "fourth-post-has-bears",
+  "path": "/blog/fourth-post-has-bears",
+  "tags": ["dogs", "post"]
+};
+var layoutProps = {
+  _frontmatter: _frontmatter
+};
+var MDXLayout = "wrapper";
+return function MDXContent(_ref) {
+  var components = _ref.components,
+      props = _objectWithoutProperties(_ref, ["components"]);
+
+  return mdx(MDXLayout, _extends({}, layoutProps, props, {
+    components: components,
+    mdxType: "MDXLayout"
+  }), mdx("p", null, mdx("span", _extends({
+    parentName: "p"
+  }, {
+    "className": "gatsby-resp-image-wrapper",
+    "style": {
+      "position": "relative",
+      "display": "block",
+      "marginLeft": "auto",
+      "marginRight": "auto",
+      "maxWidth": "1500px"
+    }
+  }), "\\n      ", mdx("a", _extends({
+    parentName: "span"
+  }, {
+    "className": "gatsby-resp-image-link",
+    "href": "/static/b10a2b12966b76e153cbed58818309a3/c58a3/image.jpg",
+    "style": {
+      "display": "block"
+    },
+    "target": "_blank",
+    "rel": "noopener"
+  }), "\\n    ", mdx("span", _extends({
+    parentName: "a"
+  }, {
+    "className": "gatsby-resp-image-background-image",
+    "style": {
+      "paddingBottom": "33.3984375%",
+      "position": "relative",
+      "bottom": "0",
+      "left": "0",
+      "backgroundImage": "url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAEDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAEAA//aAAwDAQACEAMQAAABo0mNID//xAAZEAACAwEAAAAAAAAAAAAAAAAAAgEDFBL/2gAIAQEAAQUCS+e9Lmhz/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/AVbb/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEBEjH/2gAIAQIBAT8BVcHJ/8QAGhAAAAcAAAAAAAAAAAAAAAAAAAEQETFBUf/aAAgBAQAGPwIqbEkf/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEhQWGh/9oACAEBAAE/IZulYNOGw//aAAwDAQACAAMAAAAQcC//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EJWrP//EABcRAAMBAAAAAAAAAAAAAAAAAAABUWH/2gAIAQIBAT8QSQND/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARUUFh/9oACAEBAAE/EBoKE09l6vZVUCYBP//Z')",
+      "backgroundSize": "cover",
+      "display": "block"
+    }
+  })), "\\n  ", mdx("img", _extends({
+    parentName: "a"
+  }, {
+    "className": "gatsby-resp-image-image",
+    "alt": "image info",
+    "title": "image info",
+    "src": "/static/b10a2b12966b76e153cbed58818309a3/c58a3/image.jpg",
+    "srcSet": ["/static/b10a2b12966b76e153cbed58818309a3/36dd4/image.jpg 512w", "/static/b10a2b12966b76e153cbed58818309a3/72e01/image.jpg 1024w", "/static/b10a2b12966b76e153cbed58818309a3/c58a3/image.jpg 1500w"],
+    "sizes": "(max-width: 1500px) 100vw, 1500px",
+    "style": {
+      "width": "100%",
+      "height": "100%",
+      "margin": "0",
+      "verticalAlign": "middle",
+      "position": "absolute",
+      "top": "0",
+      "left": "0"
+    },
+    "loading": "lazy"
+  })), "\\n  "), "\\n    ")), mdx("h2", null, "Lorem ipsum"), mdx("p", null, "Laborum nisi amet incididunt officia occaecat ullamco sint occaecat qui. Anim et culpa qui pariatur quis sit reprehenderit ipsum amet commodo cupidatat eiusmod deserunt mollit. Anim nostrud et fugiat eiusmod nisi cillum Lorem incididunt sit est minim dolore."), mdx("h3", null, "A beary list"), mdx("ol", null, mdx("li", {
+    parentName: "ol"
+  }, "one bear"), mdx("li", {
+    parentName: "ol"
+  }, "two bears"), mdx("li", {
+    parentName: "ol"
+  }, "three bears"), mdx("li", {
+    parentName: "ol"
+  }, "four bears")));
+}
+;
+MDXContent.isMDXComponent = true;
+      </div>
+    </article>
+  </div>,
+]
+`;

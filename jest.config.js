@@ -22,4 +22,5 @@ module.exports = {
   testURL: 'http://localhost',
   setupFiles: ['./loadershim.js', './setupJest.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  setupFilesAfterEnv: ["<rootDir>/setup-test-env.js"],
 }

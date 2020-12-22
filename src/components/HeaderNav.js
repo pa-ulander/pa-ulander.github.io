@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 import useDarkMode from 'use-dark-mode'
 import ToggleDarkMode from './ToggleDarkMode'
 
@@ -8,16 +8,16 @@ const HeaderNav = () => {
 
   return (
     <div className="sticky-nav">
-      <a href="/" className="sticky-nav-button">
+      <Link to={`/`} className="sticky-nav-button">
         Home
-      </a>
+      </Link>
       <div className="sticky-nav-stack">
-        <a href="/blog" className="sticky-nav-button">
+        <Link to={`/blog`} className="sticky-nav-button">
           Blog
-        </a>
-        <a href="/cv" className="sticky-nav-button">
-          CV
-        </a>
+        </Link>
+        <Link to={`/cv`} className="sticky-nav-button">
+          Cv
+        </Link>
       </div>
       <ToggleDarkMode checked={darkMode.value} onChange={darkMode.toggle} />
     </div>
