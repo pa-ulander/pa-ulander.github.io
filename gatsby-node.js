@@ -1,5 +1,5 @@
-const { createFilePath } = require('gatsby-source-filesystem');
-const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem')
+const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -54,7 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       throw result.errors
     }

@@ -19,7 +19,7 @@ const NotFoundPage = () => {
 
   return (
     <>
-      <SEO title="404: Not found" />
+      <SEO title='404: Not found' />
       <HeaderNav />
       <div style={wrapper}>
         <div style={container}>
@@ -27,7 +27,7 @@ const NotFoundPage = () => {
           <h1 style={head}>PAGE NOT FOUND</h1>
           <h1 style={head}>
             {`GO BACK`}{' '}
-            <Link to="/" style={text}>
+            <Link to='/' style={text}>
               HOME
             </Link>
           </h1>

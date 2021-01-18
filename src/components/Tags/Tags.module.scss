@@ -1,0 +1,16 @@
+.tag {
+  position: relative;
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  margin: 0.15rem;
+  background-color: var(--hover-color);
+  border-radius: 5px;
+  box-shadow: var(--shadow-lined);
+  font-size: .9rem;
+}
+
+@media (min-width: 568px) {
+  .tag {
+    font-size: 1rem;
+  }
+}

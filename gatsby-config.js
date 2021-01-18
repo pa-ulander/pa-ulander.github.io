@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: '',
   siteMetadata: {
-    title: 'Yet another freelance developers blog',
+    title: 'Yet another developers personal website',
     author: {
       name: 'pa@kabelkultur.se',
       summary: 'A very nice fellow that created this blog',
@@ -9,10 +9,18 @@ module.exports = {
     description: 'Learning Gatsby and other things',
     siteUrl: 'https://localhost:8000',
     social: {
-      twitter: 'pa_ulander',
+      email: 'mailto:pa@kabelkultur.se',
+      linkedin: 'https://linkedin.com/in/paulander',
+      twitter: 'https://twitter.com/pa_ulander',
+      github: 'https://github.com/pa-ulander',
+    },
+    actions: {
+      download: '/downloads/download-test.txt',
+      print: 'javascript:void(0);',
     },
   },
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-plugin-use-dark-mode',
       options: {
@@ -53,6 +61,9 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 2048,
+              backgroundColor: 'none',
+              disableBgImage: true,
+              linkImagesToOriginal: false,
             },
           },
         ],
@@ -67,9 +78,24 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 2048,
+              backgroundColor: 'none',
+              disableBgImage: true,
+              linkImagesToOriginal: false,
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.ts$|\.tsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
       },
     },
   ],

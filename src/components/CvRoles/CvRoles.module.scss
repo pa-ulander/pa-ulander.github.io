@@ -1,0 +1,81 @@
+.roles {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 792px;
+  background-color: var(--card-bg-color);
+  box-shadow: var(--shadow-lined);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  .summary span h3 {
+    margin-bottom: 3px;
+  }
+
+  .headerMargin {
+    margin-top: 2rem;
+    margin-bottom: 1.3rem;
+  }
+  .workedfor,
+  .period {
+    margin-bottom: 0px;
+  }
+  .rolecontainer {
+  }
+  .role {
+  }
+  .workedfor {
+
+  }
+
+  .period {
+  }
+
+  hr {
+    border: 0 none;
+    // border-top: 2px dashed var(--secondary-text-color);
+    background: transparent;
+    margin: 2rem 0;
+  }
+
+  hr {
+    height: 1px;
+    background-color: #981590;
+    background-image: linear-gradient(to right, #e2ae2b, #e2ae2b),
+      linear-gradient(to right, #ee5737, #ee5737),
+      linear-gradient(to right, #32a4cd, #32a4cd),
+      linear-gradient(to right, #e90e87, #e90e87),
+      linear-gradient(to right, #8bc540, #8bc540),
+      linear-gradient(to right, #9c7a28, #9c7a28),
+      linear-gradient(to right, #4cb272, #4cb272),
+      linear-gradient(to right, #255aa6, #255aa6);
+    background-repeat: no-repeat;
+    background-position: 0 0, 12.5% 0, 25% 0, 37.5% 0, 50% 0, 62.5% 0, 75% 0,
+      87.5% 0;
+    background-size: 12.5% 100%, 12.5% 100%, 12.5% 100%, 12.5% 100%, 12.5% 100%,
+      12.5% 100%, 12.5% 100%, 12.5% 100%;
+  }
+
+  h1,
+  h2 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+/* Small devices (landscape phones, 568px and up) */
+@media (min-width: 568px) {
+  .role {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  // .tools {
+  //   font-weight: bold;
+  // }
+  .col1 {
+    width: 30%;
+  }
+  .col2 {
+    width: 70%;
+  }
+}

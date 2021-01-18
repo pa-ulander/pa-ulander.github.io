@@ -15,12 +15,16 @@ module.exports = {
     '<rootDir>.*/public',
     'cypress',
   ],
-  transformIgnorePatterns: ['/.history/','/.cache/','node_modules/(?!(gatsby)/)'],
+  transformIgnorePatterns: [
+    '/.history/',
+    '/.cache/',
+    'node_modules/(?!(gatsby)/)',
+  ],
   globals: {
     __PATH_PREFIX__: '',
   },
   testURL: 'http://localhost',
   setupFiles: ['./loadershim.js', './setupJest.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  setupFilesAfterEnv: ["<rootDir>/setup-test-env.js"],
+  setupFilesAfterEnv: ['<rootDir>/setup-test-env.js'],
 }

@@ -10,16 +10,16 @@ const PostTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext
   return (
     <Layout>
-      <h1 className="post-heading">{frontmatter.title}</h1>
-      <p className="post-date">{frontmatter.date}</p>
-      <article className="post-body">
+      <h1 className='post-heading'>{frontmatter.title}</h1>
+      <p className='post-date'>{frontmatter.date}</p>
+      <article className='post-body'>
         <MDXRenderer>{body}</MDXRenderer>
       </article>
       {previous === false ? null : (
         <>
           {previous && (
             <Link to={`${previous.frontmatter.path}`}>
-              <button className="previous-next-button">
+              <button className='previous-next-button'>
                 {previous.frontmatter.title}
               </button>
             </Link>
@@ -30,7 +30,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <>
           {next && (
             <Link to={`${next.frontmatter.path}`}>
-              <button className="previous-next-button">
+              <button className='previous-next-button'>
                 {next.frontmatter.title}
               </button>
             </Link>

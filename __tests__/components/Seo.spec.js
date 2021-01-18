@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react';
+import { render } from '@testing-library/react'
 import { useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 import SEO from '../../src/components/Seo'
@@ -17,15 +17,18 @@ describe('SEO component', () => {
     const mockData = {
       site: {
         siteMetadata: {
-          title: 'Yet another freelance developers blog',
-          social: {
-            twitter: 'pa_ulander',
-          },
-          siteUrl: 'https://localhost:8000',
-          description: 'Learning Gatsby and other things',
+          title: 'Yet another developers personal website',
           author: {
             name: 'pa@kabelkultur.se',
             summary: 'A very nice fellow that created this blog',
+          },
+          description: 'Learning Gatsby and other things',
+          siteUrl: 'https://localhost:8000',
+          social: {
+            email: 'mailto:pa@kabelkultur.se',
+            linkedin: 'https://linkedin.com/in/paulander',
+            twitter: 'https://twitter.com/pa_ulander',
+            github: 'https://github.com/pa-ulander',
           },
         },
       },

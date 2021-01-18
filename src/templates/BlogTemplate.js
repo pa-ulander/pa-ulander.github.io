@@ -19,41 +19,44 @@ const Blog = ({ data }) => {
 export default Blog
 
 export const PageQuery = graphql`
-query getPosts {
-  site {
-    siteMetadata {
-      title
-      social {
-        twitter
-      }
-      siteUrl
-      description
-      author {
-        name
-        summary
+  query getPosts {
+    site {
+      siteMetadata {
+        title
+        social {
+          twitter
+        }
+        siteUrl
+        description
+        author {
+          name
+          summary
+        }
       }
     }
-  }
-  allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
-    nodes {
-      slug
-      frontmatter {
-        date(formatString: "Do MMMM YYYY")
-        title
-        description
-        templateKey
-        featuredText
-        path
-        featuredImage {
-          id
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+    ) {
+      nodes {
+        slug
+        frontmatter {
+          date(formatString: "Do MMMM YYYY")
+          title
+          description
+          templateKey
+          featuredText
+          path
+          featuredImage {
+            id
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
       }
     }
   }
-}
 `

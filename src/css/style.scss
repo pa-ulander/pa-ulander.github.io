@@ -1,0 +1,309 @@
+/* Extra small devices (portrait phones, less than 576px) */
+
+:root {
+  --main-bg-color: #121212;
+  --menu-bg-color: rgba(33, 33, 33, 0.4);
+  --card-bg-color: #242526;
+  --card-hover-bg-color: #242526;
+  --hover-color: #3a3b3c;
+  --primary-text-color: #e4e6eb;
+  --secondary-text-color: #b0b3b8;
+  --accent-color: #3b4fb3;
+  --shadow-lined: rgba(0, 0, 0, 0.15) 0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode {
+  --main-bg-color: rgb(243, 242, 239);
+  --menu-bg-color: rgba(255, 255, 255, 0.4);
+  --card-bg-color: #f5f5f5;
+  --hover-color: #ececec;
+  --primary-text-color: #444444;
+  --secondary-text-color: #000000;
+  --accent-color: #dc47a8;
+  --shadow-lined: rgba(0, 0, 0, 0.08) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.08) 1px 0px 1px 0px, rgba(0, 0, 0, 0.08) -1px 0px 1px 0px,
+    rgba(0, 0, 0, 0.08) 0px 1px 1px 0px;
+}
+
+.dark-mode {
+  --main-bg-color: #121212;
+  --menu-bg-color: rgba(33, 33, 33, 0.4);
+  --card-bg-color: #242526;
+  --card-hover-bg-color: #242526;
+  --hover-color: #3a3b3c;
+  --primary-text-color: #cccccc;
+  --secondary-text-color: #b0b3b8;
+  --accent-color: #3b4fb3;
+  --shadow-lined: rgba(0, 0, 0, 0.15) 0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  /* height: 100%; */
+  min-height: 100%;
+  margin: 0;
+  padding: 60px 0 0 0;
+  color: var(--primary-text-color);
+  background-color: #121212;
+  background-color: var(--main-bg-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Thick', Helvetica, sans-serif;
+}
+.container {
+  margin: 0 auto 4rem auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  padding: 2rem;
+  list-style: none;
+  margin-top: 2rem;
+  text-decoration: none;
+  background-color: var(--card-bg-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: var(--card-hover-bg-color);
+}
+
+.card-title,
+.card-title > a {
+  font-weight: 600;
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--primary-text-color);
+}
+
+.card-link,
+.card-link > a {
+  text-decoration: none;
+  color: #000;
+  color: var(--primary-text-color);
+}
+.card-date {
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+}
+.card-description {
+  margin-top: 1rem;
+  color: var(--primary-text-color);
+  font-size: 1.2rem;
+}
+
+.post-heading {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 3rem;
+}
+
+.post-date {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 4rem;
+}
+
+.post-body {
+  margin: 0 auto 4rem auto;
+}
+
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body ol,
+.post-body ul,
+.post-body p {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.post-body h2 {
+  font-size: 2rem;
+}
+
+.post-body ol,
+.post-body ul {
+  margin-left: 2rem;
+}
+
+.previous-next-button {
+  font-size: 1.25rem;
+  color: var(--main-color);
+  background: #efefef;
+  border: 1px solid #efefef;
+  border-radius: 5%;
+  padding: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  min-width: 25%;
+}
+
+.dark-button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3px;
+}
+.dark-button:before,
+.dark-button:after {
+  box-sizing: border-box;
+}
+.dark-button label {
+  position: relative;
+  display: block;
+  width: 45px;
+  height: 25px;
+  border-radius: 100px;
+  background-color: #252525;
+  overflow: hidden;
+  cursor: pointer;
+}
+.dark-button label:before,
+.dark-button label:after {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: 0.3s ease;
+}
+.dark-button label:before {
+  background-color: #f16e65;
+}
+.dark-button label:after {
+  background-color: #252525;
+  left: -58px;
+  transform: scale(0.00001);
+}
+.dark-button input[type='checkbox'] {
+  display: none;
+}
+
+.dark-button input[type='checkbox']:checked + label:before {
+  background-color: #ffff00;
+  transform: translateX(20px);
+}
+
+.dark-button input[type='checkbox']:checked + label:after {
+  transform: translateX(75px) scale(1);
+}
+
+table {
+  border-collapse: collapse;
+}
+thead tr {
+  border: 0;
+}
+tr {
+  border-top: 1px solid var(--secondary-text-color);
+}
+
+.shadow-lined {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px -1px 1px 0px,
+    rgba(0, 0, 0, 0.08) 1px 0px 1px 0px, rgba(0, 0, 0, 0.08) -1px 0px 1px 0px,
+    rgba(0, 0, 0, 0.08) 0px 1px 1px 0px;
+}
+.shadow-lined-2 {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-1 {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shadow-2 {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+}
+
+.shadow-3 {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+    rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+}
+
+.shadow-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.shadow-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* Screen larger than 600px? 2 column */
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

@@ -1,17 +1,16 @@
 import React from 'react'
 
 const ToggleDarkMode = ({ checked, onChange }) => {
-
   return (
-    <div className="dark-button">
+    <div className='dark-button'>
       <input
-        type="checkbox"
+        type='checkbox'
         checked={checked}
         onChange={onChange}
-        id="toggle"
+        id='toggle'
       />
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-      <label htmlFor="toggle" />
+      <label htmlFor='toggle' />
     </div>
   )
 }

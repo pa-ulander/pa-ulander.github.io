@@ -1,7 +1,7 @@
 import React from 'react'
-// import { graphql } from 'gatsby'
-import Layout from './Layout'
-import BlogPostList from './BlogPostList'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import BlogPostList from '../components/BlogPostList'
 import SEO from '../components/Seo'
 
 const HomeTemplate = ({ data }) => {
@@ -11,7 +11,7 @@ const HomeTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={siteTitle} description={siteDescription} />
-      haome template
+      <h1>haome template</h1>
       <BlogPostList data={data.allMdx.nodes} />
     </Layout>
   )
@@ -19,42 +19,44 @@ const HomeTemplate = ({ data }) => {
 
 export default HomeTemplate
 
-// export const pageQuery = graphql`
-//   query getHomePageData {
-//     site {
-//       siteMetadata {
-//         title
-//         social {
-//           twitter
-//         }
-//         siteUrl
-//         description
-//         author {
-//           name
-//           summary
-//         }
-//       }
-//     }
-//     allMdx(
-//       sort: { fields: [frontmatter___date], order: DESC }
-//       filter: { frontmatter: { pageType: { nin: "cv" } } }
-//     ) {
-//       nodes {
-//         excerpt
-//         slug
-//         frontmatter {
-//           date(formatString: "Do MMMM YYYY")
-//           title
-//           description
-//           featuredImage {
-//             childImageSharp {
-//               fluid(maxWidth: 800) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }          
-//         }
-//       }
-//     }
-//   }
-// `
+export const HomeQuery = graphql`
+  query getPostsAndMetadata {
+    site {
+      siteMetadata {
+        title
+        social {
+          twitter
+        }
+        siteUrl
+        description
+        author {
+          name
+          summary
+        }
+      }
+    }
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+    ) {
+      nodes {
+        excerpt
+        slug
+        frontmatter {
+          date(formatString: "Do MMMM YYYY")
+          title
+          slug
+          path
+          description
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

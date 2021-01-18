@@ -23,7 +23,7 @@ exports[`Header component should render correctly 1`] = `
       className="sticky-nav-button"
       to="/cv"
     >
-      Cv
+      CV
     </mockConstructor>
   </div>
   <ToggleDarkMode

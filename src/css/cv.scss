@@ -1,0 +1,93 @@
+/* Extra small devices (portrait phones, less than 576px) */
+
+header.cv,
+main.cv {
+  margin: 1rem auto;
+  max-width: 792px;
+  background-color: var(--card-bg-color);
+  box-shadow: var(--shadow-lined);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+main.cv {
+  padding: 1rem;
+}
+
+.col1,
+.col2 {
+  float: left;
+  padding: 1rem;
+}
+
+.col1,
+.col2 {
+  width: 100%;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.timeline {
+  position: absolute;
+  top: 0;
+  left: 5rem;
+  background-color: var(--secondary-text-color);
+  float: right;
+  width: 2px;
+  height: 100%;
+}
+
+h1,
+h2 {
+  font-size: clamp(1.3rem, calc(-0.875rem + 8.333333vw), 1.6rem);
+  /* font-size: calc(16px + (36 - 16) * ((100vw - 320px) / (2560 - 320))); */
+}
+
+
+.header-margin {
+  margin-top: 2rem;
+  margin-bottom: 1.3rem;
+}
+
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Small devices (landscape phones, 568px and up) */
+@media (min-width: 568px) {
+  .role {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .workedfor,
+  .period {
+    margin-bottom: 3px;
+  }
+  // .tools {
+  //   font-weight: bold;
+  // }
+  .bold {
+    font-weight: bold;
+  }
+  .col1 {
+    width: 30%;
+  }
+  .col2 {
+    width: 70%;
+  }
+}
