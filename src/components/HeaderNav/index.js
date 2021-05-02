@@ -13,8 +13,11 @@ const HeaderNav = ({ data }) => {
     { url: `/cv`, name: `CV` },
   ]
 
-  const setActive = (url) =>
-    url === location.pathname ? style.navButton__active : null
+  const setActive = (url) => {
+    // overcome location.pathname not available on build
+    const curUrl = typeof window !== 'undefined' ? window.location.pathname : ''
+    url === curUrl ? style.navButton__active : null
+  }
 
   const darkMode = useDarkMode(true)
 

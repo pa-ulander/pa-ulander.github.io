@@ -9,7 +9,6 @@ const ToggleDarkMode = ({ checked, onChange }) => {
         onChange={onChange}
         id='toggle'
       />
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label htmlFor='toggle' />
     </div>
   )

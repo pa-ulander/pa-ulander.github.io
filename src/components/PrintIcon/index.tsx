@@ -13,7 +13,13 @@ const PrintIcon: React.FC<IconProps> = ({ className, style, title }) => (
     className={className}
     style={style}
     title={title}
-    onClick={window.print}
+    onClick={
+      typeof window !== 'undefined'
+        ? window.print
+        : () => {
+            return null
+          } // overcome window not defined build error
+    }
   />
 )
 

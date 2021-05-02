@@ -9,3 +9,8 @@ import './src/css/style.scss'
 import './src/css/print.scss'
 // Highlighting for code blocks
 // import 'prismjs/themes/prism.css'
+
+export const onRouteUpdate = ({ location, prevLocation }) => {
+  if (location && location.state)
+    location.state.referrer = prevLocation ? prevLocation.pathname : null
+}
