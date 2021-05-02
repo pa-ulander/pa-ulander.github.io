@@ -3,43 +3,81 @@
 exports[`Post Template should render a blog post with mdx 1`] = `
 Array [
   <div
-    className="sticky-nav"
+    className="nav"
   >
-    <a
-      className="sticky-nav-button"
-      href="/"
-    >
-      Home
-    </a>
-    <div
-      className="sticky-nav-stack"
-    >
-      <a
-        className="sticky-nav-button"
-        href="/blog"
+    <ul>
+      <li />
+      <li>
+        <a
+          className="navButton navButton__active"
+          href="/"
+        >
+          HOME
+        </a>
+      </li>
+      <li>
+        <a
+          className="navButton null"
+          href="/blog"
+        >
+          BLOG
+        </a>
+      </li>
+      <li>
+        <a
+          className="navButton null"
+          href="/cv"
+        >
+          CV
+        </a>
+      </li>
+      <li
+        className="toggler"
       >
-        Blog
-      </a>
-      <a
-        className="sticky-nav-button"
-        href="/cv"
-      >
-        CV
-      </a>
-    </div>
-    <div
-      className="dark-button"
+        <div
+          className="dark-button"
+        >
+          <input
+            checked={true}
+            id="toggle"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            htmlFor="toggle"
+          />
+        </div>
+      </li>
+      <li
+        className="toggler"
+      />
+    </ul>
+    <svg
+      className="navprinticon"
+      fill="none"
+      height="1em"
+      onClick={[Function]}
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <input
-        checked={true}
-        id="toggle"
-        onChange={[Function]}
-        type="checkbox"
+      <title>
+        Skriv ut
+      </title>
+      <path
+        clipRule="evenodd"
+        d="M8 4H16V6H8V4ZM18 6H22V18H18V22H6V18H2V6H6V2H18V6ZM20 16H18V14H6V16H4V8H20V16ZM8 16H16V20H8V16ZM8 10H6V12H8V10Z"
+        fill="currentColor"
+        fillRule="evenodd"
       />
-      <label
-        htmlFor="toggle"
-      />
-    </div>
+    </svg>
   </div>,
   <div
     className="container"

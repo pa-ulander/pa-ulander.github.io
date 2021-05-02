@@ -1,7 +1,6 @@
 module.exports = {
   transform: {
-    '^.+\\.js?$': '<rootDir>/jest-preprocess.js',
-    '^.+\\.jsx?$': '<rootDir>/jest-preprocess.js',
+    '^.+\\.[jt]sx?$': '<rootDir>/jest-preprocess.js',
   },
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
@@ -15,6 +14,7 @@ module.exports = {
     '<rootDir>.*/public',
     'cypress',
   ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   transformIgnorePatterns: [
     '/.history/',
     '/.cache/',

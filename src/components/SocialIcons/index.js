@@ -1,13 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+
 import {
   FaRegEnvelope,
   FaLinkedinIn,
   FaGithub,
   FaDownload,
-  FaPrint,
 } from 'react-icons/fa'
-import './socialicons.scss'
+import PrintIcon from '../PrintIcon'
+import style from './SocialIcons.module.scss'
 
 const SocialIcons = () => {
   const data = useStaticQuery(graphql`
@@ -37,9 +38,8 @@ const SocialIcons = () => {
   `)
 
   const { siteMetadata } = data.site
-
   return (
-    <div className='social-icons'>
+    <div className={style.socialicons}>
       <ul>
         <li>
           <a
@@ -49,6 +49,7 @@ const SocialIcons = () => {
             rel='noopener noreferrer'
           >
             <FaRegEnvelope className='email' />
+            <span>Mejla</span>
           </a>
         </li>
         <li>
@@ -59,6 +60,7 @@ const SocialIcons = () => {
             rel='noopener noreferrer'
           >
             <FaLinkedinIn className='linkedin' />
+            <span>LinkedIn</span>
           </a>
         </li>
         <li>
@@ -69,6 +71,7 @@ const SocialIcons = () => {
             rel='noopener noreferrer'
           >
             <FaGithub className='github' />
+            <span>Github</span>
           </a>
         </li>
         <li>
@@ -79,15 +82,15 @@ const SocialIcons = () => {
             rel='noopener noreferrer'
           >
             <FaDownload className='download' />
+            <span>Hämta CV</span>
           </a>
         </li>
-        <li>
-          <a
-            href={siteMetadata.actions.print}
-            title={siteMetadata.actions.print}
-            rel='noopener noreferrer'
-          >
-            <FaPrint className='print' />
+        <li className={style.headerprinticon}>
+          <a href='#' title='Skriv ut'>
+            <PrintIcon
+              style={{ height: '2rem', width: '2rem', marginBottom: '-2px' }}
+            />
+            <span>Skriv ut</span>
           </a>
         </li>
       </ul>

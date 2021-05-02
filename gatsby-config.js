@@ -16,7 +16,7 @@ module.exports = {
     },
     actions: {
       download: '/downloads/download-test.txt',
-      print: 'javascript:void(0);',
+      print: '#',
     },
   },
   plugins: [
@@ -84,6 +84,7 @@ module.exports = {
             },
           },
         ],
+        remarkPlugins: [require('remark-grid-tables')],
       },
     },
     {

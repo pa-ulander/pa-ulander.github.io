@@ -1,0 +1,48 @@
+@media (min-width: 375px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 375px';
+  }
+}
+
+@media (min-width: 568px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 568px';
+  }
+
+}
+
+@media (min-width: 576px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 576px';
+  }
+}
+
+@media (min-width: 600px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 600px';
+  }
+}
+
+@media (min-width: 768px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 768px';
+  }
+}
+
+@media (min-width: 992px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 992px';
+  }
+}
+
+@media (min-width: 1200px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 1200px';
+  }
+}
+
+@media (min-width: 1400px) {
+  .active_breakpoint:after {
+    content: 'Breakpoint: 1400px';
+  }
+}

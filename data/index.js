@@ -1,23 +1,30 @@
 export const roleData = {
   current_role: {
-    role: `Webb och systemutvecklare (konsult)`,
-    workedfor: null,
-    header: `Webb och systemutvecklare (konsult)`,
+    role: `Systemutvecklare och Webbutvecklare (konsult)`,
+    workedfor: `Egenanställd`,
+    header: `Systemutvecklare och Webbutvecklare (konsult)`,
     period: `Nov 2019 - nu`,
     subheader: `Nuvarande projekt`,
-    summary: `Design och utveckling av webbsajt med vidhängande skräddarsydd headless cms för administrering av webbsida och databas för varukatalog.`,
+    summary: `Utveckling av varukatalog. Headless cms gjord från scratch. Api för administrering av produkter och annat content. Frontend gjord med React. Prerendering med Puppeteer. Design av webbsajt.`,
     tools: `Ubuntu, CentOS, Nginx, Apache, PHP (Laravel/Lumen), Nodejs, MySQL React, Redux, Vue, Vuex, Bootstrap, Vuetify PhpUnit, Jest, Docker, Git, AWS, Jenkins`,
     tooltags: [
       'Ubuntu',
       'CentOS',
       'Nginx',
       'Apache',
-      'PHP (Laravel/Lumen)',
+      'PHP',
+      'Laravel',
+      'Lumen',
       'Headless cms',
       'Nodejs',
       'MySQL',
+      'MariaDB',
       'React',
+      'Reactstrap',
       'Redux',
+      'Gatsby',
+      'Webpack',
+      'Gulp',
       'Vue',
       'Vuex',
       'Bootstrap',
@@ -26,7 +33,7 @@ export const roleData = {
       'Jest',
       'Docker',
       'Git',
-      'AWS',
+      'AWS Lightsail',
       'Jenkins',
     ],
   },
@@ -36,21 +43,8 @@ export const roleData = {
     header: ``,
     period: `Jun 2014 - Okt 2019 · (5år 5 månader)`,
     summary: `På Stim arbetade jag med utveckling, förvaltning och drift av beﬁntliga system och även nyutveckling av system. Omväxlande med backend och frontend i olika projekt och varierande miljöer. 
-      
-Några systemtyper och projekt jag arbetade med på Stim
-
-- CRM
-- Rapportsystem 
-- Prisberäkning 
-- Licensgenerering 
-- Fakturagenerering 
-- Musikrapportering
-- Evenemangshantering 
-- Musikanvändningsområden 
-- Licensshop 
-- Fakturering 
-- Utbetalningar 
-- Devops`,
+    Bland de systemtyper och projekt jag arbetade med fanns t ex:<br />
+    CRM · Rapportsystem · Prisberäkning · Licensgenerering · Fakturagenerering · Musikrapportering · Evenemangshantering · Musikanvändningsområden · Licensshop · Fakturering · Utbetalningar - Devops.`,
     tools: `GNU/Linux Ubuntu, CentOS<br />
     Apache, Nginx, MySQL, MariaDB, DB2<br />
     PHP (Laravel, Lumen, Phalcon, Symfony, ZF), NodeJS, Python, Bash, Make<br />
@@ -66,12 +60,23 @@ Några systemtyper och projekt jag arbetade med på Stim
       'MySQL',
       'MariaDB',
       'DB2',
-      'PHP (Laravel, Lumen, Phalcon, Symfony, ZF)',
+      'PHP',
+      'Laravel',
+      'Lumen',
+      'Phalcon',
+      'Symfony',
+      'Zend Framework',
       'NodeJS',
       'Python',
       'Bash',
       'Make',
-      'JavaScript (Vue, React, Ember, Nodejs, jQuery, YUI)',
+      'JavaScript',
+      'Vue',
+      'React',
+      'Ember',
+      'Nodejs',
+      'jQuery',
+      'YUI',
       'GraphQL',
       'HTML',
       'CSS',
@@ -103,22 +108,24 @@ Några systemtyper och projekt jag arbetade med på Stim
       role: `Systemtvecklare, IT-ansvarig`,
       workedfor: `Drömgården-DreamFarm International AB`,
       header: ``,
-      period: `jan 2013 - dec 2013`,
-      summary: `Arbetsuppgifter<br />
-      Webb och systemutveckling, systemadministration,
-      serveradministration, IT-management , Support m.m.`,
-      tools: `Verktyg/ Teknologier`,
+      period: `jan 2013 - dec 2013 · (11 månader)`,
+      summary: `<h4>Arbetsuppgifter</h4>
+      IT-Management, Serveradministration, Systemutveckling, Systemadministration
+      Webbutveckling, Integrationer, Support m.m.`,
+      tools: `<h4>Verktyg/ Teknologier</h4>`,
       tooltags: [
         'Linux (Cent OS)',
         'Apache',
         'PHP',
-        'Zend Framework, Wordpress, Magento',
+        'Zend Framework',
+        'Wordpress',
+        'Magento',
         'MySQL',
         'JavaScript',
         'XML',
         'HTML5',
         'CSS3',
-        'ZURB',
+        'Zurb Foundation',
       ],
     },
     {
@@ -133,19 +140,20 @@ Några systemtyper och projekt jag arbetade med på Stim
       Databasutveckling: MySQL<br />
       Webbutveckling: HTML5, JavaScript, CSS3`,
     },
-    {
-      role: `Frilans`,
-      workedfor: `Algovik Produktion`,
-      header: ``,
-      period: `2013`,
-      summary: `Video och ljudredigering etc (musikvideo) Adobe Suite, Virtual Dub, Flash`,
-      tools: null,
-    },
+    // {
+    //   role: `Frilans`,
+    //   workedfor: `Algovik Produktion`,
+    //   header: ``,
+    //   period: `2013`,
+    //   summary: `Video och ljudredigering etc (musikvideo).`,
+    //   tools: `<h4>Verktyg/ Teknologier</h4>`,
+    //   tooltags: ['Adobe Suite', 'Virtual Dub', 'Flash'],
+    // },
     {
       role: `PHP utvecklare / Systemutvecklare / UI utvecklare (konsult)`,
       workedfor: `Infodea AB`,
       header: ``,
-      period: `2010 - 2012`,
+      period: `2010 - 2012 · (2år)`,
       summary: `En webbapplikation / webbtjänst: ICFkoder.se som tillhandahåller funktionskoder för olika sjukdomstillstånd vilket underlättar kommunikationen mellan patienter, läkare, handläggare, myndigheter och andra. Syftet med icfkoder.se är att göra WHO’s funktionskoder tillgängliga för praktisk tillämpning i vardagen.`,
       tools: `Min roll i projektet - PHP konsult, UX/UI Design och utveckling.<br />
       Serversideprogrammering: PHP med koppling mot MySQL Server<br />
@@ -169,7 +177,7 @@ Några systemtyper och projekt jag arbetade med på Stim
       role: `PHP Utvecklare / UI Utvecklare (konsult)`,
       workedfor: `STIM / MCP- PRS (UK) / CEE Services AB`,
       header: ``,
-      period: `2007 - 2010`,
+      period: `2007 - 2010 · (3år)`,
       summary: `ICE International Copyright Application - Ett system för hantering och administration av verkdokumentation vilken används som underlag för musikrapporter, utbetalningar och avräkningar gällande upphovsrätt för musikaliska verk. Systemet används i det dagliga arbetet av handläggare och musikförlag över hela världen.`,
       tools: `Min roll i projektet - PHP konsult, UX/UI Design och utveckling.<br />
       Serversideprogrammering: PHP med koppling mot MySQL Server, Zend Framework för IBM I5 OS<br />
@@ -219,7 +227,7 @@ Några systemtyper och projekt jag arbetade med på Stim
       role: `Webbutvecklare / Webbdesigner (konsult)`,
       workedfor: `SVT1 / UR`,
       header: ``,
-      period: `2000 - 2003`,
+      period: `2000 - 2003 · (3år)`,
       summary: `Webbplatser för TV serien TV-Universitetet samt för BBC serierna "Livet på Jorden" och "Våra grannar i rymden".`,
       tools: `Min roll i projektet - PHP utvecklare, Webbdesigner<br />
       Serversideprogrammering: PHP med koppling mot MySQL Server,<br />
@@ -310,7 +318,6 @@ Några systemtyper och projekt jag arbetade med på Stim
     'Marcelo Nunëz',
     'Yidaki Groove',
     'CFE Music',
-    'Yidaki Groove',
     'Elektronik Konsulten HB',
     'Maxi Dread Crew',
     'Stockholms Bluesjam (ideellt)',

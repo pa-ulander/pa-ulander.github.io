@@ -1,11 +1,11 @@
 import React from 'react'
 import Markdown from 'react-markdown'
+import CvHeader from '../CvHeader'
 import Tags from '../Tags'
-import { dateDiff } from '../../utils/date'
 import { roleData } from '../../../data'
 import style from './CvRoles.module.scss'
 
-const CvRoles = () => {
+const CvRoles = ({ cvHeaderData }) => {
   const {
     current_role,
     last_employment,
@@ -14,7 +14,20 @@ const CvRoles = () => {
     additional_clients,
   } = roleData
 
-  const toolsHeader = `Verktyg/Teknologier`
+  const groupData = (data, groupLength = 3) =>
+    data
+      .reduce(
+        (groups, curr) => {
+          let arr = groups[groups.length - 1]
+          arr.push(curr)
+          if (arr.length === groupLength) groups.push([])
+          return groups
+        },
+        [[]]
+      )
+      .filter((chunk) => chunk.length)
+
+  const toolsHeader = `#### Verktyg / Teknologier`
 
   const renderRole = (role, summary) => (
     <div className={style.rolecontainer}>
@@ -33,8 +46,9 @@ const CvRoles = () => {
     </div>
   )
 
-  const renderRoles = (role, idx) => (
+  const renderRoles = (role, idx, header) => (
     <React.Fragment key={`rf-${idx}`}>
+      {idx === 0 && header}
       <div className={style.rolecontainer} key={`role-${idx}`}>
         <div className={style.role}>{role.role}</div>
         <div className={style.workedfor} key={`header-${idx}`}>
@@ -68,90 +82,82 @@ const CvRoles = () => {
     </React.Fragment>
   )
 
-  const renderCurrentRole = () => {
-    const summary = `<h3>Nuvarande projekt</h3>${current_role.summary}`
+  const renderFirstPage = () => {
+    const summary = `<h4 class='subheading'>Nuvarande projekt</h4>${current_role.summary}`
     return (
-      <React.Fragment key={`cr`}>
+      <div className={style.page} key={`page`}>
+        <CvHeader data={cvHeaderData} />
+        <h2 className={style.experinceheading}>Erfarenheter</h2>
         {renderRole(current_role, summary)}
         <hr />
-      </React.Fragment>
-    )
-  }
-
-  const renderLastEmployment = () => {
-    const header = `## Senaste anställning`
-    return (
-      <React.Fragment key={`le`}>
-        <Markdown escapeHtml={false} source={header} />
         {renderRole(last_employment, last_employment.summary)}
-        <hr />
-      </React.Fragment>
+      </div>
     )
   }
 
   const renderRoles_2007_2014 = () => {
-    const header = (
-      <Markdown
-        escapeHtml={false}
-        source={`## Uppdragsgivare 2007-2014`}
-        key={`upg`}
-        className={style.headerMargin}
-      />
-    )
-    const roles = roles_2007_2014.map((role, idx) => renderRoles(role, idx))
+    const header = <h2 className={style.heading}>Uppdragsgivare 2007-2014</h2>
+    const groups = groupData(roles_2007_2014)
+    const roles = groups.map((group, idx) => (
+      <div className={style.page} key={`page-${idx}`}>
+        {group.map((role, idxx) => renderRoles(role, idx + idxx, header))}
+      </div>
+    ))
 
-    return [header, roles]
+    return roles
   }
 
   const renderRoles_2000_2007 = () => {
     const header = (
-      <Markdown
-        escapeHtml={true}
-        source={`## Uppdragsgivare/genomförda projekt 2000-2007, ett urval`}
-        key={`upg2`}
-      />
+      <h2 className={style.heading}>
+        Uppdragsgivare/genomförda projekt 2000-2007, ett urval
+      </h2>
     )
-    const roles = roles_2000_2007.map((role, idx) => renderRoles(role, idx))
+    let rolecount = 0
+    const groups = groupData(roles_2000_2007)
+    const roles = groups.map((group, idx) => (
+      <div className={style.page} key={`page-${idx}`}>
+        {group.map((role, idxx) => {
+          rolecount++
+          return [
+            renderRoles(role, idx + idxx, header),
+            rolecount === 7 ? renderAdditional() : null,
+          ]
+        })}
+      </div>
+    ))
 
-    return [header, roles]
+    return [roles]
   }
 
   const renderAdditional = () => {
     const header = (
-      <Markdown
-        escapeHtml={true}
-        source={`# Ytterligare uppdragsgivare 2000-2007`}
-        key={`pr`}
-      />
+      <h2 key={`h`} className={style.additionalheading}>
+        Ytterligare uppdragsgivare 2000-2007
+      </h2>
     )
-    const projects = additional_clients.map((project, idx) => {
-      return (
-        <React.Fragment key={`pr-${idx}`}>
-          <Markdown
-            escapeHtml={false}
-            source={project}
-            key={`project--${idx}`}
-          />
-        </React.Fragment>
-      )
-    })
-    return [header, projects]
+    const projects = additional_clients.map((project, idx) => (
+      <span key={`p-${idx}`}>{project}</span>
+    ))
+    return (
+      <React.Fragment key={`rf`}>
+        {header}
+        <div key={`p`} className={style.additional}>
+          {projects}
+        </div>
+
+        <div className={style.rolesfooter}>
+          Fler uppdragsreferenser samt rekommendationer finns på min{' '}
+          <a href='https://linkedin.com/in/paulander'>LinkedIn-profil</a>.
+          <br />
+          Önskas fler uppdragsreferenser och rekommendationer kan det lämnas på
+          begäran.
+        </div>
+      </React.Fragment>
+    )
   }
 
-  return (
-    <main className={style.roles}>
-      <Markdown escapeHtml={false} source={`## Erfarenheter`} key={`erf`} />
-      {[
-        renderCurrentRole(),
-        renderLastEmployment(),
-        renderRoles_2007_2014(),
-        renderRoles_2000_2007(),
-        renderAdditional(),
-      ]}
-      <br />
-      Ytterligare uppdragsreferenser och referenspersoner lämnas på begäran.
-    </main>
-  )
+  return [renderFirstPage(), renderRoles_2007_2014(), renderRoles_2000_2007()]
 }
 
 export default CvRoles

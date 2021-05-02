@@ -1,0 +1,60 @@
+.socialicons {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      text-align: center;
+      padding-top: 0.5rem;
+      font-size: 1rem;
+      color: var(--secondary-text-color);
+      &:hover {
+        color: var(--primary-text-color);
+      }
+      a {
+        margin: 0;
+        color: var(--secondary-text-color);
+        text-decoration: none;
+        &:hover {
+          color: var(--primary-text-color);
+        }
+      }
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+    span {
+      display: block;
+    }
+  }
+  .headerprinticon {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .socialicons {
+    ul {
+      margin-right: 5%;
+      li {
+        font-size: 1rem;
+        svg {
+          width: 1.8rem;
+          height: 1.8rem;
+        }
+      }
+    }
+    .headerprinticon {
+      display: inline-block;
+    }
+  }
+}
+
+@media print {
+  .socialicons {
+    display: none;
+  }
+}

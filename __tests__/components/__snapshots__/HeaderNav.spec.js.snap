@@ -2,33 +2,59 @@
 
 exports[`Header component should render correctly 1`] = `
 <div
-  className="sticky-nav"
+  className="nav"
 >
-  <mockConstructor
-    className="sticky-nav-button"
-    to="/"
-  >
-    Home
-  </mockConstructor>
-  <div
-    className="sticky-nav-stack"
-  >
-    <mockConstructor
-      className="sticky-nav-button"
-      to="/blog"
+  <ul>
+    <li />
+    <li
+      key="li-0"
     >
-      Blog
-    </mockConstructor>
-    <mockConstructor
-      className="sticky-nav-button"
-      to="/cv"
+      <mockConstructor
+        className="navButton navButton__active"
+        key="HOME"
+        to="/"
+      >
+        HOME
+      </mockConstructor>
+    </li>
+    <li
+      key="li-1"
     >
-      CV
-    </mockConstructor>
-  </div>
-  <ToggleDarkMode
-    checked={true}
-    onChange={[Function]}
+      <mockConstructor
+        className="navButton null"
+        key="BLOG"
+        to="/blog"
+      >
+        BLOG
+      </mockConstructor>
+    </li>
+    <li
+      key="li-2"
+    >
+      <mockConstructor
+        className="navButton null"
+        key="CV"
+        to="/cv"
+      >
+        CV
+      </mockConstructor>
+    </li>
+    <li
+      className="toggler"
+    >
+      <ToggleDarkMode
+        checked={true}
+        onChange={[Function]}
+      />
+    </li>
+    <li
+      className="toggler"
+    />
+  </ul>
+  <PrintIcon
+    className="navprinticon"
+    style={Object {}}
+    title="Skriv ut"
   />
 </div>
 `;
