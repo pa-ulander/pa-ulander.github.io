@@ -14,9 +14,9 @@ const HeaderNav = ({ data }) => {
   ]
 
   const setActive = (url) => {
-    // overcome location.pathname not available on build
+    // patch location.pathname not available on build
     const curUrl = typeof window !== 'undefined' ? window.location.pathname : ''
-    url === curUrl ? style.navButton__active : null
+    return url === curUrl ? style.navButton__active : null
   }
 
   const darkMode = useDarkMode(true)
