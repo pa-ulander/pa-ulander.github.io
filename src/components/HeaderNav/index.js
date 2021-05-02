@@ -6,7 +6,7 @@ import PrintIcon from '../PrintIcon'
 // import MediaQueryUtil from '../devutils/MediaQueryUtil'
 import style from './HeaderNav.module.scss'
 
-const HeaderNav = ({ data }) => {
+const HeaderNav = () => {
   const links = [
     { url: `/`, name: `HOME` },
     { url: `/blog`, name: `BLOG` },
