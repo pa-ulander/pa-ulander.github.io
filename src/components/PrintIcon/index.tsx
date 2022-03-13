@@ -1,6 +1,6 @@
 import React from 'react'
 import { CgPrinter } from 'react-icons/cg'
-import { printicon } from './PrintIcon.module.scss'
+import styles from './PrintIcon.module.scss'
 
 export interface IconProps {
   className: string
@@ -24,7 +24,7 @@ const PrintIcon: React.FC<IconProps> = ({ className, style, title }) => (
 )
 
 PrintIcon.defaultProps = {
-  className: printicon,
+  className: styles.printicon,
   style: {},
   title: 'Skriv ut',
 }
