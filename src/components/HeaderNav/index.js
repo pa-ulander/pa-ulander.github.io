@@ -3,8 +3,8 @@ import { Link } from 'gatsby'
 import useDarkMode from 'use-dark-mode'
 import ToggleDarkMode from '../ToggleDarkMode'
 import PrintIcon from '../PrintIcon'
-// import MediaQueryUtil from '../devutils/MediaQueryUtil'
-import style from './HeaderNav.module.scss'
+import MediaQueryUtil from '../devutils/MediaQueryUtil'
+import './HeaderNav.scss'
 
 const HeaderNav = () => {
   const links = [
@@ -14,34 +14,36 @@ const HeaderNav = () => {
   ]
 
   const setActive = (url) => {
-    // patch location.pathname not available on build
+    // patch location.pathname not being available to node during build
     const curUrl = typeof window !== 'undefined' ? window.location.pathname : ''
-    return url === curUrl ? style.navButton__active : null
+    return url === curUrl ? 'navButton__active' : null
   }
 
   const darkMode = useDarkMode(true)
 
   return (
-    <div className={style.nav}>
+    <div className='nav'>
       <ul>
-        <li>{/* <MediaQueryUtil /> */}</li>
+        <li>
+          <MediaQueryUtil />
+        </li>
         {links.map((link, i) => (
           <li key={`li-${i}`}>
             <Link
               key={link.name}
               to={link.url}
-              className={`${style.navButton} ${setActive(link.url)}`}
+              className={`navButton ${setActive(link.url)}`}
             >
               {link.name}
             </Link>
           </li>
         ))}
-        <li className={style.toggler}>
+        <li className='toggler'>
           <ToggleDarkMode checked={darkMode.value} onChange={darkMode.toggle} />
         </li>
-        <li className={style.toggler}></li>
+        <li className='toggler'></li>
       </ul>
-      <PrintIcon className={style.navprinticon} title='Skriv ut' />
+      <PrintIcon className='navprinticon' title='Skriv ut' />
     </div>
   )
 }
