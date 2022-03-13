@@ -24,9 +24,9 @@ const HeaderNav = () => {
   return (
     <div className='nav'>
       <ul>
-        <li>
+        {/* <li>
           <MediaQueryUtil />
-        </li>
+        </li> */}
         {links.map((link, i) => (
           <li key={`li-${i}`}>
             <Link

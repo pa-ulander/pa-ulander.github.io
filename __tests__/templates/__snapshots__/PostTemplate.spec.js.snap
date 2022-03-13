@@ -6,7 +6,6 @@ Array [
     className="nav"
   >
     <ul>
-      <li />
       <li>
         <a
           className="navButton navButton__active"

@@ -5,7 +5,6 @@ exports[`Header component should render correctly 1`] = `
   className="nav"
 >
   <ul>
-    <li />
     <li
       key="li-0"
     >
