@@ -22,15 +22,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     {
-      resolve: 'gatsby-plugin-use-dark-mode',
-      options: {
-        classNameDark: 'dark-mode',
-        classNameLight: 'light-mode',
-        storageKey: 'darkMode',
-        minify: true,
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/markdown/blog`,
@@ -84,19 +75,25 @@ module.exports = {
             },
           },
         ],
-        remarkPlugins: [require('remark-grid-tables')],
+        remarkPlugins: [require('remark-gfm')],
       },
     },
     {
-      resolve: 'gatsby-plugin-eslint',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        test: /\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
-        stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 2048,
+              backgroundColor: 'none',
+              disableBgImage: true,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+        remarkPlugins: [require('remark-gfm')],
       },
     },
   ],
