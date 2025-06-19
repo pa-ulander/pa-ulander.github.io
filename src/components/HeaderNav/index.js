@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import useDarkMode from 'use-dark-mode'
+import useDarkMode from '../../hooks/useDarkMode'
 import ToggleDarkMode from '../ToggleDarkMode'
 import PrintIcon from '../PrintIcon'
-import MediaQueryUtil from '../devutils/MediaQueryUtil'
 import './HeaderNav.scss'
 
 const HeaderNav = () => {
@@ -19,7 +18,11 @@ const HeaderNav = () => {
     return url === curUrl ? 'navButton__active' : null
   }
 
-  const darkMode = useDarkMode(true)
+  const darkMode = useDarkMode(false, {
+    classNameDark: 'dark-mode',
+    classNameLight: 'light-mode',
+    element: typeof document !== 'undefined' ? document.body : undefined,
+  })
 
   return (
     <div className='nav'>

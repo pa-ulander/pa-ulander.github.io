@@ -39,7 +39,7 @@ export const PageQuery = graphql`
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
     ) {
       nodes {
-        slug
+        id
         frontmatter {
           date(formatString: "Do MMMM YYYY")
           title

@@ -41,7 +41,7 @@ export const HomeQuery = graphql`
     ) {
       nodes {
         excerpt
-        slug
+        id
         frontmatter {
           date(formatString: "Do MMMM YYYY")
           title

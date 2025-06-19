@@ -26,6 +26,9 @@ module.exports = {
       options: {
         path: `${__dirname}/markdown/blog`,
         name: 'blog',
+        sassOptions: {
+          api: 'modern-compiler', // or modern
+        },
       },
     },
     {

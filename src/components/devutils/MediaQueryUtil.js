@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import style from './MediaQueryUtil.module.scss'
+import * as style from './MediaQueryUtil.module.scss'
 
 /**
  * Utility helpful when dealing with media queries.

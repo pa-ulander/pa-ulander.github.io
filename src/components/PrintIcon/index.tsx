@@ -8,7 +8,11 @@ export interface IconProps {
   title: string
 }
 
-const PrintIcon: React.FC<IconProps> = ({ className, style, title }) => (
+const PrintIcon: React.FC<IconProps> = ({
+  className = printicon,
+  style = {},
+  title = 'Skriv ut',
+}) => (
   <CgPrinter
     className={className}
     style={style}
@@ -23,10 +27,10 @@ const PrintIcon: React.FC<IconProps> = ({ className, style, title }) => (
   />
 )
 
-PrintIcon.defaultProps = {
-  className: printicon,
-  style: {},
-  title: 'Skriv ut',
-}
+// PrintIcon.defaultProps = {
+//   className: printicon,
+//   style: {},
+//   title: 'Skriv ut',
+// }
 
 export default PrintIcon
