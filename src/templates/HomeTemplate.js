@@ -50,11 +50,13 @@ export const HomeQuery = graphql`
           description
           featuredImage {
             childImageSharp {
-              gatsbyImageData(width: 800, layout: CONSTRAINED)
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
       }
     }
   }
-`
+}`
