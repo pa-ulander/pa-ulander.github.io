@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Image = ({ aspectRatio, ...props }) => {
   let orientation
@@ -7,7 +7,7 @@ const Image = ({ aspectRatio, ...props }) => {
   if (aspectRatio <= 0.8) orientation = 'portrait'
   if (aspectRatio > 0.8 && aspectRatio < 1.2) orientation = 'square'
 
-  return <Img className={`${orientation}`} {...props} />
+  return <GatsbyImage className={`${orientation}`} {...props} />;
 }
 
 export default Image

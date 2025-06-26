@@ -9,9 +9,9 @@ const CvHeader = ({ data }) => {
       <div className={style.row}>
         <div className={style.cv__header__column1}>
           <Image
-            aspectRatio={data.childImageSharp.fluid.aspectRatio}
+            aspectRatio={data.childImageSharp.gatsbyImageData.aspectRatio}
             alt='PA Ulander - Systemutvecklare & Webbutvecklare'
-            fluid={data.childImageSharp.fluid}
+            fluid={data.childImageSharp.gatsbyImageData}
             style={{ borderRadius: '5px' }}
             className='shadow-lined'
           />
@@ -36,7 +36,7 @@ const CvHeader = ({ data }) => {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
 CvHeader.propTypes = {}

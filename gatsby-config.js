@@ -20,7 +20,18 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-use-dark-mode',
       options: {
