@@ -19,40 +19,42 @@ const HomeTemplate = ({ data }) => {
 
 export default HomeTemplate
 
-export const HomeQuery = graphql`query getPostsAndMetadata {
-  site {
-    siteMetadata {
-      title
-      social {
-        twitter
-      }
-      siteUrl
-      description
-      author {
-        name
-        summary
+export const HomeQuery = graphql`
+  query getPostsAndMetadata {
+    site {
+      siteMetadata {
+        title
+        social {
+          twitter
+        }
+        siteUrl
+        description
+        author {
+          name
+          summary
+        }
       }
     }
-  }
-  allMdx(
-    sort: {fields: [frontmatter___date], order: DESC}
-    filter: {frontmatter: {templateKey: {eq: "blog-post"}}}
-  ) {
-    nodes {
-      excerpt
-      slug
-      frontmatter {
-        date(formatString: "Do MMMM YYYY")
-        title
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+    ) {
+      nodes {
+        excerpt
         slug
-        path
-        description
-        featuredImage {
-          childImageSharp {
-            gatsbyImageData(width: 800, layout: CONSTRAINED)
+        frontmatter {
+          date(formatString: "Do MMMM YYYY")
+          title
+          slug
+          path
+          description
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
+            }
           }
         }
       }
     }
   }
-}`
+`

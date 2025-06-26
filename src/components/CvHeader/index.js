@@ -1,7 +1,7 @@
 import React from 'react'
 import SocialIcons from '../SocialIcons'
 import Image from '../Image'
-import style from './CvHeader.module.scss'
+import * as style from './CvHeader.module.scss'
 
 const CvHeader = ({ data }) => {
   return (

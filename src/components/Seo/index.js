@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet'
 import { siteMetadata } from '../../../gatsby-config'
 
 const SEO = ({
-  description,
   lang = 'en',
-  meta,
+  meta = [],
+  description = '',
   title,
   slug,
   isPost = false,
@@ -68,11 +68,11 @@ const SEO = ({
   )
 }
 
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  description: '',
-}
+// SEO.defaultProps = {
+//   lang: 'en',
+//   meta: [],
+//   description: '',
+// }
 
 SEO.propTypes = {
   description: PropTypes.string,

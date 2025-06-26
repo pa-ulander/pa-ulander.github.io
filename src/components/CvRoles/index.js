@@ -1,9 +1,22 @@
 import React from 'react'
 import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import CvHeader from '../CvHeader'
 import Tags from '../Tags'
 import { roleData } from '../../../data'
-import style from './CvRoles.module.scss'
+import {
+  page,
+  rolecontainer,
+  roletext,
+  workedfor,
+  period,
+  summary,
+  heading,
+  experinceheading,
+  additionalheading,
+  additional,
+  rolesfooter,
+} from './CvRoles.module.scss'
 
 const CvRoles = ({ cvHeaderData }) => {
   const {
@@ -29,18 +42,18 @@ const CvRoles = ({ cvHeaderData }) => {
 
   const toolsHeader = `#### Verktyg / Teknologier`
 
-  const renderRole = (role, summary) => (
-    <div className={style.rolecontainer}>
-      <div className={style.role}>{role.role}</div>
-      <div className={style.workedfor}>{role.workedfor}</div>
-      <div className={style.period}>{role.period}</div>
+  const renderRole = (role, sum) => (
+    <div className={rolecontainer}>
+      <div className={roletext}>{role.role}</div>
+      <div className={workedfor}>{role.workedfor}</div>
+      <div className={period}>{role.period}</div>
 
-      <div className={style.summary}>
-        <Markdown escapeHtml={false} source={summary} />
+      <div className={summary}>
+        <Markdown rehypePlugins={[rehypeRaw]}>{sum}</Markdown>
       </div>
 
-      <div className={style.tools}>
-        <Markdown escapeHtml={false} source={toolsHeader} />
+      <div>
+        <Markdown>{toolsHeader}</Markdown>
         <Tags tagdata={role.tooltags} />
       </div>
     </div>
@@ -49,32 +62,25 @@ const CvRoles = ({ cvHeaderData }) => {
   const renderRoles = (role, idx, header) => (
     <React.Fragment key={`rf-${idx}`}>
       {idx === 0 && header}
-      <div className={style.rolecontainer} key={`role-${idx}`}>
-        <div className={style.role}>{role.role}</div>
-        <div className={style.workedfor} key={`header-${idx}`}>
+      <div className={rolecontainer} key={`role-${idx}`}>
+        <div className={roletext}>{role.role}</div>
+        <div className={workedfor} key={`header-${idx}`}>
           {role.workedfor}
         </div>
-        <div className={style.period} key={`period-${idx}`}>
+        <div className={period} key={`period-${idx}`}>
           {role.period}
         </div>
 
-        <div
-          className={`${style.summary} ${style.clear}`}
-          key={`summary-${idx}`}
-        >
-          <Markdown
-            escapeHtml={false}
-            source={role.summary}
-            key={`msummary-${idx}`}
-          />
+        <div className={`${summary}`} key={`summary-${idx}`}>
+          <Markdown key={`msummary-${idx}`} rehypePlugins={[rehypeRaw]}>
+            {role.summary}
+          </Markdown>
         </div>
 
         <div className='tools' key={`tools-${idx}`}>
-          <Markdown
-            escapeHtml={false}
-            source={role.tools}
-            key={`mtools-${idx}`}
-          />
+          <Markdown key={`mtools-${idx}`} rehypePlugins={[rehypeRaw]}>
+            {role.tools}
+          </Markdown>
           <Tags tagdata={role.tooltags} />
         </div>
       </div>
@@ -85,9 +91,9 @@ const CvRoles = ({ cvHeaderData }) => {
   const renderFirstPage = () => {
     const summary = `<h4 class='subheading'>Nuvarande projekt</h4>${current_role.summary}`
     return (
-      <div className={style.page} key={`page`}>
+      <div className={page} key={`page`}>
         <CvHeader data={cvHeaderData} />
-        <h2 className={style.experinceheading}>Erfarenheter</h2>
+        <h2 className={experinceheading}>Erfarenheter</h2>
         {renderRole(current_role, summary)}
         <hr />
         {renderRole(last_employment, last_employment.summary)}
@@ -96,10 +102,10 @@ const CvRoles = ({ cvHeaderData }) => {
   }
 
   const renderRoles_2007_2014 = () => {
-    const header = <h2 className={style.heading}>Uppdragsgivare 2007-2014</h2>
+    const header = <h2 className={heading}>Uppdragsgivare 2007-2014</h2>
     const groups = groupData(roles_2007_2014)
     const roles = groups.map((group, idx) => (
-      <div className={style.page} key={`page-${idx}`}>
+      <div className={page} key={`page-${idx}`}>
         {group.map((role, idxx) => renderRoles(role, idx + idxx, header))}
       </div>
     ))
@@ -109,14 +115,14 @@ const CvRoles = ({ cvHeaderData }) => {
 
   const renderRoles_2000_2007 = () => {
     const header = (
-      <h2 className={style.heading}>
+      <h2 className={heading}>
         Uppdragsgivare/genomförda projekt 2000-2007, ett urval
       </h2>
     )
     let rolecount = 0
     const groups = groupData(roles_2000_2007)
     const roles = groups.map((group, idx) => (
-      <div className={style.page} key={`page-${idx}`}>
+      <div className={page} key={`page-${idx}`}>
         {group.map((role, idxx) => {
           rolecount++
           return [
@@ -132,7 +138,7 @@ const CvRoles = ({ cvHeaderData }) => {
 
   const renderAdditional = () => {
     const header = (
-      <h2 key={`h`} className={style.additionalheading}>
+      <h2 key={`h`} className={additionalheading}>
         Ytterligare uppdragsgivare 2000-2007
       </h2>
     )
@@ -142,11 +148,11 @@ const CvRoles = ({ cvHeaderData }) => {
     return (
       <React.Fragment key={`rf`}>
         {header}
-        <div key={`p`} className={style.additional}>
+        <div key={`p`} className={additional}>
           {projects}
         </div>
 
-        <div className={style.rolesfooter}>
+        <div className={rolesfooter}>
           Fler uppdragsreferenser samt rekommendationer finns på min{' '}
           <a href='https://linkedin.com/in/paulander'>LinkedIn-profil</a>.
           <br />

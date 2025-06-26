@@ -8,7 +8,7 @@ import {
   FaDownload,
 } from 'react-icons/fa'
 import PrintIcon from '../PrintIcon'
-import style from './SocialIcons.module.scss'
+import * as style from './SocialIcons.module.scss'
 
 const SocialIcons = () => {
   const data = useStaticQuery(graphql`

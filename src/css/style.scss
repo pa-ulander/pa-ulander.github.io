@@ -1,12 +1,13 @@
 /* Extra small devices (portrait phones, less than 576px) */
 
+/* Default light mode variables */
 :root {
   --main-bg-color: #121212;
-  --menu-bg-color: rgba(33, 33, 33, 0.4);
+  --menu-bg-color: rgba(33, 33, 33, 0.7);
   --card-bg-color: #242526;
   --card-hover-bg-color: #242526;
   --hover-color: #3a3b3c;
-  --primary-text-color: #e4e6eb;
+  --primary-text-color: #cccccc;
   --secondary-text-color: #b0b3b8;
   --primary-heading-color: #bb7900;
   --accent-color: #3b4fb3;
@@ -46,6 +47,7 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -320,4 +322,19 @@ tr {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+}
+
+/* Dark mode transition fixes */
+body.light-mode,
+body.dark-mode {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ensure no flickering during class changes */
+.dark-mode * {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.light-mode * {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Tags.module.scss'
+import * as styles from './Tags.module.scss'
 
 type Props = {
   tagdata: string[]

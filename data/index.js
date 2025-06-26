@@ -248,7 +248,7 @@ export const roleData = {
     },
     {
       role: `Webbutvecklare / Webbdesigner (konsult)`,
-      workedfor: `Berild Form – Konsthantverk`,
+      workedfor: `Berild Form - Konsthantverk`,
       header: ``,
       period: null,
       summary: `En specialgjord CMS där det administrativa gränssnittet bygger på dra och släpp för maximal användarvänlighet.`,
