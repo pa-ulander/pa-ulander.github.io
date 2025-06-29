@@ -37,9 +37,6 @@ module.exports = {
       options: {
         path: `${__dirname}/markdown/blog`,
         name: 'blog',
-        sassOptions: {
-          api: 'modern-compiler', // or modern
-        },
       },
     },
     {
@@ -89,25 +86,6 @@ module.exports = {
             },
           },
         ],
-        remarkPlugins: [require('remark-gfm')],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 2048,
-              backgroundColor: 'none',
-              disableBgImage: true,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-        remarkPlugins: [require('remark-gfm')],
       },
     },
   ],
