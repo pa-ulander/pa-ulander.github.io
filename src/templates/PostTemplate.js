@@ -1,20 +1,17 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/Layout'
 
-const PostTemplate = ({ data, pageContext }) => {
+const PostTemplate = ({ data, pageContext, children }) => {
   // console.log('data', data)
   // console.log('pageContext', pageContext)
-  const { frontmatter, body } = data.mdx
+  const { frontmatter } = data.mdx
   const { previous, next } = pageContext
   return (
     <Layout>
       <h1 className='post-heading'>{frontmatter.title}</h1>
       <p className='post-date'>{frontmatter.date}</p>
-      <article className='post-body'>
-        <MDXRenderer>{body}</MDXRenderer>
-      </article>
+      <article className='post-body'>{children}</article>
       {previous === false ? null : (
         <>
           {previous && (
@@ -46,7 +43,6 @@ export default PostTemplate
 export const query = graphql`
   query PostBySlug($slug: String!) {
     mdx(frontmatter: { path: { eq: $slug } }) {
-      body
       frontmatter {
         title
         date(formatString: "Do MMMM YYYY")

@@ -1,5 +1,6 @@
 module.exports = {
   pathPrefix: '',
+  trailingSlash: 'always', // Explicitly set v5 default behavior
   siteMetadata: {
     title: 'Yet another developers personal website',
     author: {
@@ -26,7 +27,8 @@ module.exports = {
       options: {
         implementation: require('sass'),
         sassOptions: {
-          api: 'modern',
+          api: 'modern-compiler',
+          silenceDeprecations: ['legacy-js-api'],
         },
         cssLoaderOptions: {
           esModule: false,
