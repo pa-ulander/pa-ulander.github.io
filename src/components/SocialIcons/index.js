@@ -8,7 +8,7 @@ import {
   FaDownload,
 } from 'react-icons/fa'
 import PrintIcon from '../PrintIcon'
-import * as style from './SocialIcons.module.scss'
+import styles from './SocialIcons.module.scss'
 
 const SocialIcons = () => {
   const data = useStaticQuery(graphql`
@@ -39,7 +39,7 @@ const SocialIcons = () => {
 
   const { siteMetadata } = data.site
   return (
-    <div className={style.socialicons}>
+    <div className={styles.socialicons}>
       <ul>
         <li>
           <a
@@ -85,7 +85,7 @@ const SocialIcons = () => {
             <span>Hämta CV</span>
           </a>
         </li>
-        <li className={style.headerprinticon}>
+        <li className={styles.headerprinticon}>
           <a href='#' title='Skriv ut'>
             <PrintIcon
               style={{ height: '2rem', width: '2rem', marginBottom: '-2px' }}

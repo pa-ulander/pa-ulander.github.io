@@ -1,13 +1,13 @@
 import React from 'react'
 import SocialIcons from '../SocialIcons'
 import Image from '../Image'
-import * as style from './CvHeader.module.scss'
+import styles from './CvHeader.module.scss'
 
 const CvHeader = ({ data }) => {
   return (
-    <header className={style.cv_header}>
-      <div className={style.row}>
-        <div className={style.cv_header_column1}>
+    <header className={styles.cv_header}>
+      <div className={styles.row}>
+        <div className={styles.cv_header_column1}>
           <Image
             aspectRatio={data.childImageSharp.gatsbyImageData.aspectRatio}
             alt='PA Ulander - Systemutvecklare & Webbutvecklare'
@@ -16,12 +16,12 @@ const CvHeader = ({ data }) => {
             className='shadow-lined'
           />
         </div>
-        <div className={style.cv_header_column2}>
-          <h1 className={style.cv_header_heading}>PA Ulander</h1>
-          <h2 className={style.cv_header_subheading}>
+        <div className={styles.cv_header_column2}>
+          <h1 className={styles.cv_header_heading}>PA Ulander</h1>
+          <h2 className={styles.cv_header_subheading}>
             Systemutvecklare & Webbutvecklare
           </h2>
-          <p className={style.cv_header_summary}>
+          <p className={styles.cv_header_summary}>
             System och webbutvecklare med drygt 20-års kommersiell erfarenhet
             från utveckling av webb och företagslösningar. Specialiserad på
             välkända opensource teknologier som Linux, Apache/Nginx, PHP, MySQL,

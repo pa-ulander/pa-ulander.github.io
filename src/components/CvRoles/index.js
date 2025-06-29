@@ -4,7 +4,8 @@ import rehypeRaw from 'rehype-raw'
 import CvHeader from '../CvHeader'
 import Tags from '../Tags'
 import { roleData } from '../../../data'
-import {
+import styles from './CvRoles.module.scss'
+const {
   page,
   rolecontainer,
   roletext,
@@ -16,7 +17,7 @@ import {
   additionalheading,
   additional,
   rolesfooter,
-} from './CvRoles.module.scss'
+} = styles
 
 const CvRoles = ({ cvHeaderData }) => {
   const {
