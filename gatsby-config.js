@@ -24,6 +24,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        implementation: require('sass'),
+        sassOptions: {
+          api: 'modern',
+        },
         cssLoaderOptions: {
           esModule: false,
           modules: {

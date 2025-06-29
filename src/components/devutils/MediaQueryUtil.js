@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import * as style from './MediaQueryUtil.module.scss'
+import styles from './MediaQueryUtil.module.scss'
 
 /**
  * Utility helpful when dealing with media queries.
@@ -100,7 +100,7 @@ const MediaQueryUtil = () => {
 
     return (
       <div style={css}>
-        <div className={style.active_breakpoint}></div>
+        <div className={styles.active_breakpoint}></div>
         <div>bp: {dimensions.current}</div>
         <div>Width: {dimensions.width}px</div>
         <div>Height: {dimensions.height}px</div>
