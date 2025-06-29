@@ -18,25 +18,27 @@ const CvTemplate = ({ data, pageContext }) => {
 
 export default CvTemplate
 
-export const query = graphql`query cvQuery {
-  mdx(frontmatter: {templateKey: {eq: "cv-page"}}) {
-    body
-    frontmatter {
-      date(formatString: "YYYY-MM-DD")
-      description
-      published
-      templateKey
-      title
-      tags
-      slug
-      path
-      pageType
-      featuredText
+export const query = graphql`
+  query cvQuery {
+    mdx(frontmatter: { templateKey: { eq: "cv-page" } }) {
+      body
+      frontmatter {
+        date(formatString: "YYYY-MM-DD")
+        description
+        published
+        templateKey
+        title
+        tags
+        slug
+        path
+        pageType
+        featuredText
+      }
+    }
+    cvImage: file(relativePath: { eq: "img.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 600, layout: CONSTRAINED)
+      }
     }
   }
-  cvImage: file(relativePath: {eq: "img.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 600, layout: CONSTRAINED)
-    }
-  }
-}`
+`

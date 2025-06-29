@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const BlogPostList = ({ data }) => {
   const posts = data
@@ -18,8 +18,13 @@ const BlogPostList = ({ data }) => {
             <div className='card' key={`card-${idx}`}>
               <div className='card-image-wrap'>
                 <GatsbyImage
-                  image={post.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-                  className='card-image' />
+                  image={
+                    post.frontmatter.featuredImage.childImageSharp
+                      .gatsbyImageData
+                  }
+                  className='card-image'
+                  alt=''
+                />
               </div>
               <h1 className='card-title' key={`card-title-${idx}`}>
                 {title}
@@ -32,10 +37,10 @@ const BlogPostList = ({ data }) => {
               </p>
             </div>
           </Link>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
 export default BlogPostList
