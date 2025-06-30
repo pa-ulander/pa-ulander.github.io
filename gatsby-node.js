@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { createFilePath } from 'gatsby-source-filesystem'
-import { resolve } from 'path'
+const { createFilePath } = require('gatsby-source-filesystem')
+const path = require('path')
 
-export function createSchemaCustomization({ actions }) {
+exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
     type Mdx implements Node {
@@ -12,12 +12,12 @@ export function createSchemaCustomization({ actions }) {
   createTypes(typeDefs)
 }
 
-export function createPages({ graphql, actions }) {
+exports.createPages = ({ graphql, actions }) =>{
   const { createPage } = actions
-  const blogTemplate = resolve('./src/templates/BlogTemplate.js')
-  const postTemplate = resolve('./src/templates/PostTemplate.js')
-  const cvTemplate = resolve('./src/templates/CvTemplate.js') // Not used anymore
-  const homeTemplate = resolve('./src/templates/HomeTemplate.js')
+  const blogTemplate = path.resolve('./src/templates/BlogTemplate.js')
+  const postTemplate = path.resolve('./src/templates/PostTemplate.js')
+  const cvTemplate = path.resolve('./src/templates/CvTemplate.js') // Not used anymore
+  const homeTemplate = path.resolve('./src/templates/HomeTemplate.js')
 
   return graphql(`
     {
@@ -116,7 +116,7 @@ export function createPages({ graphql, actions }) {
   })
 }
 
-export function onCreateNode({ node, actions, getNode }) {
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode })
