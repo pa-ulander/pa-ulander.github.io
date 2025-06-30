@@ -24,6 +24,7 @@ export default [
         process: 'readonly',
         module: 'readonly',
         require: 'readonly',
+        exports: 'writable',
         console: 'readonly',
         window: 'readonly',
         document: 'readonly',

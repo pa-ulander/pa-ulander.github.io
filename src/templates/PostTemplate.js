@@ -3,8 +3,8 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 
 const PostTemplate = ({ data, pageContext, children }) => {
-  // console.log('data', data)
-  // console.log('pageContext', pageContext)
+  console.log('blogpost data', data)
+  console.log('pageContext', pageContext)
   const { frontmatter } = data.mdx
   const { previous, next } = pageContext
   return (

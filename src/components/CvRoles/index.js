@@ -43,19 +43,6 @@ const CvRoles = ({ cvHeaderData }) => {
     additional_clients,
   } = roleData
 
-  const groupData = (data, groupLength = 3) =>
-    data
-      .reduce(
-        (groups, curr) => {
-          let arr = groups[groups.length - 1]
-          arr.push(curr)
-          if (arr.length === groupLength) groups.push([])
-          return groups
-        },
-        [[]]
-      )
-      .filter((chunk) => chunk.length)
-
   const toolsHeader = `#### Verktyg / Teknologier`
 
   const renderRole = (role, sum) => (
