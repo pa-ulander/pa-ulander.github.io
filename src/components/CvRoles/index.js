@@ -25,7 +25,7 @@ const CvRoles = ({ cvHeaderData }) => {
   // Fallback to useStaticQuery if cvHeaderData is not provided
   const fallbackData = useStaticQuery(graphql`
     query CvImageQuery {
-      cvImage: file(relativePath: { eq: "cv/img.jpg" }) {
+      cvImage: file(name: { eq: "img" }, sourceInstanceName: { eq: "cv" }) {
         childImageSharp {
           gatsbyImageData(width: 600, layout: CONSTRAINED)
         }
@@ -34,8 +34,6 @@ const CvRoles = ({ cvHeaderData }) => {
   `)
 
   const headerData = cvHeaderData || fallbackData.cvImage
-  console.log('CvRoles cvHeaderData:', headerData)
-  console.log('CvRoles roleData:', roleData)
 
   const {
     current_role,
