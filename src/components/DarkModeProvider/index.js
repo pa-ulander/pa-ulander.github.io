@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import useDarkMode from 'use-dark-mode'
+import useDarkMode from '../../hooks/useDarkMode'
 
 const DarkModeProvider = ({ children }) => {
   const [isClient, setIsClient] = useState(false)

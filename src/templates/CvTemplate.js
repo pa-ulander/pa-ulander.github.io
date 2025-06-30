@@ -2,15 +2,28 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/'
 import SEO from '../components/Seo'
+import CvRoles from '../components/CvRoles'
 
-const CvTemplate = ({ data, children }) => {
-  // console.log('data.mdx', data.mdx)
-  // console.log('pageContext', pageContext)
+const CvTemplate = ({ data }) => {
+  console.log('CvTemplate data:', data)
+
+  if (!data || !data.mdx) {
+    return (
+      <Layout>
+        <SEO title='CV' />
+        <div>Loading CV content...</div>
+      </Layout>
+    )
+  }
+
   const { frontmatter } = data.mdx
+
   return (
     <Layout>
       <SEO title={frontmatter.title} description={frontmatter.description} />
-      {children}
+      <div className='cv-content'>
+        <CvRoles cvHeaderData={data.cvImage} />
+      </div>
     </Layout>
   )
 }
@@ -33,7 +46,7 @@ export const query = graphql`
         featuredText
       }
     }
-    cvImage: file(relativePath: { eq: "img.jpg" }) {
+    cvImage: file(relativePath: { eq: "cv/img.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 600, layout: CONSTRAINED)
       }

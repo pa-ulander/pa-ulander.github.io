@@ -16,7 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve('./src/templates/BlogTemplate.js')
   const postTemplate = path.resolve('./src/templates/PostTemplate.js')
-  const cvTemplate = path.resolve('./src/templates/CvTemplate.js')
+  // const cvTemplate = path.resolve('./src/templates/CvTemplate.js') // Not used anymore
   const homeTemplate = path.resolve('./src/templates/HomeTemplate.js')
 
   return graphql(`
@@ -73,7 +73,7 @@ exports.createPages = ({ graphql, actions }) => {
     const home = result.data.home.nodes[0]
     const blog = result.data.blog.nodes[0]
     const posts = result.data.posts.nodes
-    const cv = result.data.cv.nodes[0]
+    // const cv = result.data.cv.nodes[0] // Not used anymore
 
     createPage({
       path: home.frontmatter.path,
@@ -91,13 +91,14 @@ exports.createPages = ({ graphql, actions }) => {
       },
     })
 
-    createPage({
-      path: cv.frontmatter.path,
-      component: cvTemplate,
-      context: {
-        slug: cv.frontmatter.slug,
-      },
-    })
+    // Commenting out CV page creation since we're using src/pages/cv.js instead
+    // createPage({
+    //   path: cv.frontmatter.path,
+    //   component: cvTemplate,
+    //   context: {
+    //     slug: cv.frontmatter.slug,
+    //   },
+    // })
 
     posts.forEach((post, idx) => {
       const previous = idx === posts.length - 1 ? null : posts[idx + 1]
