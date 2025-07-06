@@ -1,10 +1,73 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Layout component should render correctly 1`] = `
-<Fragment>
-  <HeaderNav />
-  <div
-    className="container"
-  />
-</Fragment>
+<div
+  class="nav"
+>
+  <ul>
+    <li>
+      <a
+        aria-current="page"
+        class="navButton navButton__active"
+        href="/"
+      >
+        HOME
+      </a>
+    </li>
+    <li>
+      <a
+        class="navButton null"
+        href="/blog"
+      >
+        BLOG
+      </a>
+    </li>
+    <li>
+      <a
+        class="navButton null"
+        href="/cv"
+      >
+        CV
+      </a>
+    </li>
+    <li
+      class="toggler"
+    >
+      <div
+        class="dark-button"
+      >
+        <input
+          id="toggle"
+          type="checkbox"
+        />
+        <label
+          for="toggle"
+        />
+      </div>
+    </li>
+    <li
+      class="toggler"
+    />
+  </ul>
+  <svg
+    class="navprinticon"
+    fill="none"
+    height="1em"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 24 24"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>
+      Skriv ut
+    </title>
+    <path
+      clip-rule="evenodd"
+      d="M8 4H16V6H8V4ZM18 6H22V18H18V22H6V18H2V6H6V2H18V6ZM20 16H18V14H6V16H4V8H20V16ZM8 16H16V20H8V16ZM8 10H6V12H8V10Z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;

@@ -47,7 +47,7 @@ const HomeTemplate = () => {
 
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
-
+  console.log('HomeTemplate data', data)
   return (
     <Layout>
       <SEO title={siteTitle} description={siteDescription} />

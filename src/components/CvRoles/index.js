@@ -88,7 +88,7 @@ const CvRoles = ({ cvHeaderData }) => {
         {current_role &&
           renderRole(
             current_role,
-            `<h4 class='subheading'>Nuvarande projekt</h4>${current_role.summary}`
+            `<h4 class='subheading'>${current_role.subheader}</h4>${current_role.summary}`,
           )}
         <hr />
         {last_employment &&
@@ -110,29 +110,31 @@ const CvRoles = ({ cvHeaderData }) => {
             Uppdragsgivare/genomförda projekt 2000-2007, ett urval
           </h2>
           {roles_2000_2007.map((role, idx) => renderRoles(role, idx, null))}
-
-          {/* Additional clients */}
-          {additional_clients && additional_clients.length > 0 && (
-            <div>
-              <h2 className={additionalheading}>
-                Ytterligare uppdragsgivare 2000-2007
-              </h2>
-              <div className={additional}>
-                {additional_clients.map((project, idx) => (
-                  <span key={`p-${idx}`}>{project}</span>
-                ))}
-              </div>
-              <div className={rolesfooter}>
-                Fler uppdragsreferenser samt rekommendationer finns på min{' '}
-                <a href='https://linkedin.com/in/paulander'>LinkedIn-profil</a>.
-                <br />
-                Önskas fler uppdragsreferenser och rekommendationer kan det
-                lämnas på begäran.
-              </div>
-            </div>
-          )}
         </div>
       )}
+
+      {/* Additional clients */}
+      <div className={page}>
+        {additional_clients && additional_clients.length > 0 && (
+          <div>
+            <h2 className={additionalheading}>
+              Ytterligare uppdragsgivare 2000-2007
+            </h2>
+            <div className={additional}>
+              {additional_clients.map((project, idx) => (
+                <span key={`p-${idx}`}>{project}</span>
+              ))}
+            </div>
+            <div className={rolesfooter}>
+              Fler uppdragsreferenser samt rekommendationer finns på min{' '}
+              <a href='https://linkedin.com/in/paulander'>LinkedIn-profil</a>.
+              <br />
+              Önskas fler uppdragsreferenser och rekommendationer kan det lämnas
+              på begäran.
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

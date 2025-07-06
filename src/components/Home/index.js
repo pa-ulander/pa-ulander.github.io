@@ -4,6 +4,8 @@ import BlogPostList from '../BlogPostList'
 import SEO from '../Seo'
 
 const Home = ({ data }) => {
+  console.log('home data', data)
+
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
 

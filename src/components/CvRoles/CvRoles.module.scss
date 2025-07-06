@@ -196,10 +196,11 @@
     border: initial;
     border-radius: initial;
     width: initial;
-    min-height: initial;
+    min-height: 297mm;
     box-shadow: initial;
     page-break-after: always;
     background-color: #fff;
+    break-after: always;
   }
 
   .page h4 {
