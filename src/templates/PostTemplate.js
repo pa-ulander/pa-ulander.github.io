@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { MDXProvider } from '@mdx-js/react'
+import { MDXComponents } from '../components/MDXComponents'
 
 const PostTemplate = ({ data, pageContext, children }) => {
   const { frontmatter } = data.mdx
@@ -23,7 +25,7 @@ const PostTemplate = ({ data, pageContext, children }) => {
       <p className='post-date'>{frontmatter.date}</p>
       <p className='post-date'>{frontmatter.featuredText}</p>
       <article className='post-body'>
-        {children}
+        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
         {/* Post Footer with Tags */}
         {frontmatter.tags && (
           <footer className='post-footer'>
