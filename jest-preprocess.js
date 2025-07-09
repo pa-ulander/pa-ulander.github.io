@@ -1,7 +1,7 @@
 const babelOptions = {
   presets: [
-    '@babel/env',
-    '@babel/react',
+    ['@babel/preset-env', { loose: true }],
+    '@babel/preset-react',
     '@babel/preset-flow',
     'babel-preset-gatsby',
     '@babel/preset-typescript',
@@ -9,6 +9,8 @@ const babelOptions = {
   plugins: [
     '@babel/plugin-syntax-flow',
     '@babel/plugin-transform-modules-commonjs',
+    ['@babel/plugin-transform-private-property-in-object', { loose: true }],
+    ['@babel/plugin-transform-private-methods', { loose: true }],
   ],
 }
 

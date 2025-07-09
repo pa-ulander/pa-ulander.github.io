@@ -1,3 +1,5 @@
+/* CvRoles Module Styles */
+
 .page {
   width: 100%;
   height: 100%;
@@ -5,165 +7,136 @@
   margin: 0;
   background-color: var(--card-bg-color);
   transition: all 0.3s ease;
+}
 
-  .heading {
-    font-size: 1.1rem;
-    margin: 1rem 0;
-    padding: 0;
-    color: var(--primary-heading-color);
-  }
-  .additionalheading {
-    font-size: 0.8rem;
-    margin: -1rem 0 0.5rem 0;
-    padding: 0;
-    color: var(--primary-heading-color);
-  }
+.heading {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  padding: 0;
+  color: var(--primary-heading-color);
+}
 
-  .subheading {
-    margin: 0;
-    padding: 0;
-  }
+.experinceheading {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  padding: 0;
+  color: var(--primary-heading-color);
+}
 
-  h4 {
-    font-size: 0.875rem;
-    margin-bottom: 3px;
-    padding-bottom: 0;
-    font-weight: normal;
-  }
+.additionalheading {
+  font-size: 0.8rem;
+  margin: -1rem 0 0.5rem 0;
+  padding: 0;
+  color: var(--primary-heading-color);
+}
 
-  // .summary span h4 {
-  //   margin: 0.8rem 0 0 0;
-  // }
+.subheading {
+  margin: 0;
+  padding: 0;
+}
 
-  .rolecontainer {
-    font-size: 0.875rem;
-  }
+.rolecontainer {
+  font-size: 0.875rem;
+}
 
-  .workedfor,
-  .period {
-    margin-bottom: 0px;
-  }
+.rolesfooter {
+  padding-top: 20px;
+}
 
-  .role {
-    font-family: Roboto Slab, Serif;
-  }
-  .workedfor {
-  }
+.roletext {
+  font-family: Roboto Slab, Serif;
+}
 
-  .period {
-  }
+.workedfor {
+  margin-bottom: 0px;
+}
 
-  .summary {
-    span h4 {
-      margin: 0.8rem 0 0 0;
-    }
-    //   ul {
-    //     justify-content: space-between;
-    //     list-style-type: none;
-    //     margin: 0;
-    //     padding: 0;
-    //     li {
-    //       float: left;
-    //       padding-top: 0.5rem;
-    //       font-size: 1rem;
-    //       color: var(--secondary-text-color);
-    //     }
-    //   }
-  }
+.period {
+  margin-bottom: 0px;
+}
 
-  hr {
-    border: 0 none;
-    // border-top: 2px dashed var(--secondary-text-color);
-    background: transparent;
-    margin: 1rem 0;
-  }
+.summary {
+  margin-bottom: 1rem;
+}
 
-  hr {
-    height: 2px;
-    background-color: #444;
-    background-image: linear-gradient(to right, #e2ae2b, #e2ae2b),
-      linear-gradient(to right, #ee5737, #ee5737),
-      linear-gradient(to right, #32a4cd, #32a4cd),
-      linear-gradient(to right, #e90e87, #e90e87),
-      linear-gradient(to right, #8bc540, #8bc540),
-      linear-gradient(to right, #9c7a28, #9c7a28),
-      linear-gradient(to right, #4cb272, #4cb272),
-      linear-gradient(to right, #255aa6, #255aa6),
-      linear-gradient(to right, #981590, #981590),
-      linear-gradient(to right, #ffa0bf, #ffa0bf),
-      linear-gradient(to right, #32a4cd, #32a4cd);
-    background-repeat: no-repeat;
-    background-position: 0 0, 10% 0, 20% 0, 30% 0, 40% 0, 50% 0, 60% 0, 70% 0,
-      80% 0, 90% 0, 100% 0;
-    background-size: 10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%,
-      10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%;
-    opacity: 0.5;
-  }
+.summary h4 {
+  margin: 0.8rem 0 0 0;
+}
 
-  hr:not(:first-of-type):last-of-type {
-    display: none;
-  }
+.page h4 {
+  font-size: 0.875rem;
+  margin-bottom: 3px;
+  padding-bottom: 0;
+  font-weight: normal;
+}
 
-  .additional {
-    column-count: 2;
-    font-size: 0.75rem;
-  }
+.page hr {
+  border: 0 none;
+  background: transparent;
+  margin: 1rem 0;
+  height: 2px;
+  background-color: #444;
+  background-image: linear-gradient(to right, #e2ae2b, #e2ae2b),
+    linear-gradient(to right, #ee5737, #ee5737),
+    linear-gradient(to right, #32a4cd, #32a4cd),
+    linear-gradient(to right, #e90e87, #e90e87),
+    linear-gradient(to right, #8bc540, #8bc540),
+    linear-gradient(to right, #9c7a28, #9c7a28),
+    linear-gradient(to right, #4cb272, #4cb272),
+    linear-gradient(to right, #255aa6, #255aa6),
+    linear-gradient(to right, #981590, #981590),
+    linear-gradient(to right, #ffa0bf, #ffa0bf),
+    linear-gradient(to right, #32a4cd, #32a4cd);
+  background-repeat: no-repeat;
+  background-position: 0 0, 10% 0, 20% 0, 30% 0, 40% 0, 50% 0, 60% 0, 70% 0,
+    80% 0, 90% 0, 100% 0;
+  background-size: 10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%,
+    10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%;
+  opacity: 0.5;
+}
+
+.page hr:not(:first-of-type):last-of-type {
+  display: none;
+}
+
+.additional {
+  column-count: 2;
+  font-size: 0.75rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .page {
     padding: 2rem;
-    // width: 210mm;
-    // min-width: 210mm;
-    // height: 297mm;
-    // min-height: 297mm;
-    // padding: 15mm;
-    // margin: 10mm auto;
-    // border-radius: 6px;
+  }
 
-    .role {
-      font-size: 1.3rem;
-      margin-bottom: 3px;
-    }
-    .workedfor,
-    .period {
-      margin-bottom: 0px;
-    }
+  .roletext {
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+  }
 
-    .workedfor {
-    }
+  .page h4 {
+    margin-bottom: 3px;
+    padding-bottom: 0;
+    font-weight: normal;
+  }
 
-    .period {
-    }
+  .summary h4 {
+    margin: 0.8rem 0 0 0;
+  }
 
-    h4 {
-      margin-bottom: 3px;
-      padding-bottom: 0;
-      font-weight: normal;
-    }
+  .heading {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    color: var(--primary-heading-color);
+  }
 
-    .summary span h4 {
-      margin: 0.8rem 0 0 0;
-    }
+  .page hr {
+    margin: 1rem 0;
+  }
 
-    .heading {
-      margin: 0 0 1.5rem 0;
-      padding: 0;
-      color: var(--primary-heading-color);
-    }
-
-    .subheading {
-      margin: 0;
-      padding: 0;
-    }
-
-    hr {
-      margin: 1rem 0;
-    }
-    .additional {
-      column-count: 3;
-    }
+  .additional {
+    column-count: 3;
   }
 }
 
@@ -172,74 +145,48 @@
   .page {
     width: 210mm;
     min-width: 210mm;
-    height: 297mm;
     min-height: 297mm;
     padding: 15mm;
     margin: 10mm auto;
     border-radius: 6px;
+  }
 
-    .rolecontainer {
-      font-size: 1rem;
-    }
+  .rolecontainer {
+    font-size: 1rem;
+  }
 
-    .role {
-      font-size: 1.3rem;
-      margin-bottom: 3px;
-    }
-    .workedfor,
-    .period {
-      margin-bottom: 0px;
-    }
+  .roletext {
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+  }
 
-    .workedfor {
-    }
+  .heading,
+  .additionalheading {
+    font-size: 1.5rem;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    color: var(--primary-heading-color);
+  }
 
-    .period {
-    }
+  .experinceheading {
+    font-size: 1.5rem;
+    margin: 0.8rem 0;
+    padding: 0;
+    color: var(--primary-heading-color);
+  }
 
-    h4 {
-      margin-bottom: 3px;
-      padding-bottom: 0;
-      font-weight: normal;
-    }
+  .page hr {
+    margin: 2rem 0;
+  }
 
-    .summary {
-      span h4 {
-        margin: 0.8rem 0 0 0;
-      }
-    }
+  .additional {
+    font-size: 1rem;
+    column-count: 2;
+  }
 
-    .heading,
-    .additionalheading {
-      font-size: 1.5rem;
-      margin: 0 0 1.5rem 0;
-      padding: 0;
-      color: var(--primary-heading-color);
-    }
-
-    .experinceheading {
-      font-size: 1.5rem;
-      margin: .8rem 0;
-      padding: 0;
-      color: var(--primary-heading-color);
-    }
-
-    .subheading {
-      margin: 0;
-      padding: 0;
-    }
-
-    hr {
-      margin: 2rem 0;
-    }
-    .additional {
-      font-size: 1rem;
-      column-count: 2;
-      span {
-        display: block;
-        padding-bottom: 0.4rem;
-      }
-    }
+  .additional span {
+    display: block;
+    padding-bottom: 0.4rem;
   }
 }
 
@@ -249,40 +196,22 @@
     border: initial;
     border-radius: initial;
     width: initial;
-    min-height: initial;
+    min-height: 297mm;
     box-shadow: initial;
     page-break-after: always;
-  }
-  .roles {
     background-color: #fff;
-    box-shadow: none;
-    border-radius: 0;
+    break-after: always;
+  }
 
-    h4 {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+  .page h4 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 
-    .workedfor,
-    .period {
-      margin-bottom: 0px;
-    }
-
-    .role {
-    }
-    .workedfor {
-    }
-
-    .period {
-      margin: 0;
-      padding: 0;
-    }
-
-    hr {
-      border: 0 none;
-      border-top: 2px dashed var(--secondary-text-color);
-      background: transparent;
-      margin: 2rem 0;
-    }
+  .page hr {
+    border: 0 none;
+    border-top: 2px dashed var(--secondary-text-color);
+    background: transparent;
+    margin: 2rem 0;
   }
 }

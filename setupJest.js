@@ -1,4 +1,2 @@
-import { configure } from 'enzyme'
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
-
-configure({ adapter: new Adapter() })
+// Jest setup file
+require('@testing-library/jest-dom')

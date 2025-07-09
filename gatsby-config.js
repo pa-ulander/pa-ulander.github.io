@@ -1,5 +1,6 @@
 module.exports = {
   pathPrefix: '',
+  trailingSlash: 'always', // Explicitly set v5 default behavior
   siteMetadata: {
     title: 'Yet another developers personal website',
     author: {
@@ -20,14 +21,21 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     {
-      resolve: 'gatsby-plugin-use-dark-mode',
+      resolve: `gatsby-plugin-sass`,
       options: {
-        classNameDark: 'dark-mode',
-        classNameLight: 'light-mode',
-        storageKey: 'darkMode',
-        minify: true,
+        implementation: require('sass'),
+        sassOptions: {
+          api: 'modern-compiler',
+          silenceDeprecations: ['legacy-js-api'],
+        },
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
       },
     },
     {
@@ -84,19 +92,6 @@ module.exports = {
             },
           },
         ],
-        remarkPlugins: [require('remark-grid-tables')],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-eslint',
-      options: {
-        test: /\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
-        stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
       },
     },
   ],

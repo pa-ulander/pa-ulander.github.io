@@ -30,9 +30,10 @@
       display: block;
     }
   }
-  .headerprinticon {
-    display: none;
-  }
+}
+
+.headerprinticon {
+  display: none;
 }
 
 @media (min-width: 576px) {
@@ -47,9 +48,9 @@
         }
       }
     }
-    .headerprinticon {
-      display: inline-block;
-    }
+  }
+  .headerprinticon {
+    display: inline-block;
   }
 }
 

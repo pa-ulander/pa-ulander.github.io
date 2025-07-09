@@ -36,9 +36,6 @@ exports.createPages = ({ graphql, actions }) => {
         filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
       ) {
         nodes {
-          internal {
-            contentFilePath
-          }
           frontmatter {
             date(formatString: "Do MMMM YYYY")
             title
@@ -90,7 +87,7 @@ exports.createPages = ({ graphql, actions }) => {
       path: blog.frontmatter.path,
       component: blogTemplate,
       context: {
-        slug: blog.frontmatter.slug, // This slug will be passed to the BlogTemplate query
+        slug: blog.frontmatter.slug,
       },
     })
 
@@ -107,7 +104,7 @@ exports.createPages = ({ graphql, actions }) => {
       const next = idx === 0 ? null : posts[idx - 1]
       createPage({
         path: post.frontmatter.path,
-        component: `${postTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
+        component: postTemplate,
         context: {
           slug: post.frontmatter.path,
           pathSlug: post.frontmatter.path,

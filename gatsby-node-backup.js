@@ -19,56 +19,47 @@ exports.createPages = ({ graphql, actions }) => {
   const cvTemplate = path.resolve('./src/templates/CvTemplate.js')
   const homeTemplate = path.resolve('./src/templates/HomeTemplate.js')
 
-  return graphql(`
-    {
-      blog: allMdx(
-        filter: { frontmatter: { templateKey: { eq: "blog-home" } } }
-      ) {
-        nodes {
-          frontmatter {
-            path
-            slug
-          }
-        }
-      }
-      posts: allMdx(
-        sort: { frontmatter: { date: DESC } }
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-      ) {
-        nodes {
-          internal {
-            contentFilePath
-          }
-          frontmatter {
-            date(formatString: "Do MMMM YYYY")
-            title
-            description
-            templateKey
-            path
-            slug
-          }
-        }
-      }
-      cv: allMdx(filter: { frontmatter: { templateKey: { eq: "cv-page" } } }) {
-        nodes {
-          frontmatter {
-            path
-            slug
-          }
-        }
-      }
-      home: allMdx(
-        filter: { frontmatter: { templateKey: { eq: "home-page" } } }
-      ) {
-        nodes {
-          frontmatter {
-            path
-            slug
-          }
-        }
+  return graphql(`{
+  blog: allMdx(filter: {frontmatter: {templateKey: {eq: "blog-home"}}}) {
+    nodes {
+      frontmatter {
+        path
+        slug
       }
     }
-  `).then((result) => {
+  }
+  posts: allMdx(
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {templateKey: {eq: "blog-post"}}}
+  ) {
+    nodes {
+      frontmatter {
+        date(formatString: "Do MMMM YYYY")
+        title
+        description
+        templateKey
+        path
+        slug
+      }
+    }
+  }
+  cv: allMdx(filter: {frontmatter: {templateKey: {eq: "cv-page"}}}) {
+    nodes {
+      frontmatter {
+        path
+        slug
+      }
+    }
+  }
+  home: allMdx(filter: {frontmatter: {templateKey: {eq: "home-page"}}}) {
+    nodes {
+      frontmatter {
+        path
+        slug
+      }
+    }
+  }
+}`).then((result) => {
     if (result.errors) {
       throw result.errors
     }
@@ -90,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
       path: blog.frontmatter.path,
       component: blogTemplate,
       context: {
-        slug: blog.frontmatter.slug, // This slug will be passed to the BlogTemplate query
+        slug: blog.frontmatter.slug,
       },
     })
 
@@ -107,7 +98,7 @@ exports.createPages = ({ graphql, actions }) => {
       const next = idx === 0 ? null : posts[idx - 1]
       createPage({
         path: post.frontmatter.path,
-        component: `${postTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
+        component: postTemplate,
         context: {
           slug: post.frontmatter.path,
           pathSlug: post.frontmatter.path,
@@ -116,7 +107,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
-  })
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const BlogPostList = ({ data }) => {
+  console.log('BlogPostList data', data)
+
   const posts = data
 
   return (
@@ -17,9 +19,13 @@ const BlogPostList = ({ data }) => {
           >
             <div className='card' key={`card-${idx}`}>
               <div className='card-image-wrap'>
-                <Img
-                  fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+                <GatsbyImage
+                  image={
+                    post.frontmatter.featuredImage.childImageSharp
+                      .gatsbyImageData
+                  }
                   className='card-image'
+                  alt=''
                 />
               </div>
               <h1 className='card-title' key={`card-title-${idx}`}>
@@ -27,6 +33,9 @@ const BlogPostList = ({ data }) => {
               </h1>
               <p className='card-description' key={`card-description-${idx}`}>
                 {post.frontmatter.description}
+              </p>
+              <p className='card-excerpt' key={`card-excerpt-${idx}`}>
+                {post.excerpt}
               </p>
               <p className='card-date' key={`card-date-${idx}`}>
                 {post.frontmatter.date}
