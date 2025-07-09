@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const BlogPostList = ({ data }) => {
+  console.log('BlogPostList data', data)
+
   const posts = data
 
   return (
@@ -31,6 +33,9 @@ const BlogPostList = ({ data }) => {
               </h1>
               <p className='card-description' key={`card-description-${idx}`}>
                 {post.frontmatter.description}
+              </p>
+              <p className='card-excerpt' key={`card-excerpt-${idx}`}>
+                {post.excerpt}
               </p>
               <p className='card-date' key={`card-date-${idx}`}>
                 {post.frontmatter.date}

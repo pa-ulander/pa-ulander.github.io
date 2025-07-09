@@ -12,11 +12,11 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
-exports.createPages = ({ graphql, actions }) =>{
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve('./src/templates/BlogTemplate.js')
   const postTemplate = path.resolve('./src/templates/PostTemplate.js')
-  const cvTemplate = path.resolve('./src/templates/CvTemplate.js') // Not used anymore
+  const cvTemplate = path.resolve('./src/templates/CvTemplate.js')
   const homeTemplate = path.resolve('./src/templates/HomeTemplate.js')
 
   return graphql(`
@@ -87,7 +87,7 @@ exports.createPages = ({ graphql, actions }) =>{
       path: blog.frontmatter.path,
       component: blogTemplate,
       context: {
-        slug: blog.frontmatter.slug,
+        slug: blog.frontmatter.slug, // This slug will be passed to the BlogTemplate query
       },
     })
 

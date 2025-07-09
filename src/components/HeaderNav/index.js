@@ -8,8 +8,8 @@ import './HeaderNav.scss'
 const HeaderNav = () => {
   const links = [
     { url: `/`, name: `HOME` },
-    { url: `/blog`, name: `BLOG` },
-    { url: `/cv`, name: `CV` },
+    { url: `/blog/`, name: `BLOG` },
+    { url: `/cv/`, name: `CV` },
   ]
 
   const setActive = (url) => {
