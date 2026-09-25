@@ -7,6 +7,7 @@
   margin: 0;
   background-color: var(--card-bg-color);
   transition: all 0.3s ease;
+  break-after: always;
 }
 
 .heading {
@@ -44,7 +45,9 @@
 }
 
 .roletext {
-  font-family: Roboto Slab, Serif;
+  font-family:
+    Roboto Slab,
+    Serif;
 }
 
 .workedfor {
@@ -76,7 +79,8 @@
   margin: 1rem 0;
   height: 2px;
   background-color: #444;
-  background-image: linear-gradient(to right, #e2ae2b, #e2ae2b),
+  background-image:
+    linear-gradient(to right, #e2ae2b, #e2ae2b),
     linear-gradient(to right, #ee5737, #ee5737),
     linear-gradient(to right, #32a4cd, #32a4cd),
     linear-gradient(to right, #e90e87, #e90e87),
@@ -88,10 +92,30 @@
     linear-gradient(to right, #ffa0bf, #ffa0bf),
     linear-gradient(to right, #32a4cd, #32a4cd);
   background-repeat: no-repeat;
-  background-position: 0 0, 10% 0, 20% 0, 30% 0, 40% 0, 50% 0, 60% 0, 70% 0,
-    80% 0, 90% 0, 100% 0;
-  background-size: 10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%,
-    10% 100%, 10% 100%, 10% 100%, 10% 100%, 10% 100%;
+  background-position:
+    0 0,
+    10% 0,
+    20% 0,
+    30% 0,
+    40% 0,
+    50% 0,
+    60% 0,
+    70% 0,
+    80% 0,
+    90% 0,
+    100% 0;
+  background-size:
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%,
+    10% 100%;
   opacity: 0.5;
 }
 
@@ -108,6 +132,7 @@
 @media (min-width: 576px) {
   .page {
     padding: 2rem;
+    break-after: always;
   }
 
   .roletext {
@@ -149,6 +174,7 @@
     padding: 15mm;
     margin: 10mm auto;
     border-radius: 6px;
+    break-after: always;
   }
 
   .rolecontainer {
@@ -200,6 +226,7 @@
     box-shadow: initial;
     page-break-after: always;
     background-color: #fff;
+    break-inside: avoid;
     break-after: always;
   }
 
@@ -213,5 +240,9 @@
     border-top: 2px dashed var(--secondary-text-color);
     background: transparent;
     margin: 2rem 0;
+  }
+  
+  .no-print {
+    display: none !important;
   }
 }
