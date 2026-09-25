@@ -90,7 +90,7 @@ exports.createPages = ({ graphql, actions }) => {
       path: blog.frontmatter.path,
       component: blogTemplate,
       context: {
-        slug: blog.frontmatter.slug, // This slug will be passed to the BlogTemplate query
+        slug: blog.frontmatter.slug,
       },
     })
 
