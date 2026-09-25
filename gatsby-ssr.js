@@ -27,3 +27,14 @@
 // export const onRenderBody = ({ setPreBodyComponents }) => {
 //   setPreBodyComponents(<MagicScriptTag />)
 // }
+
+// exports.onRenderBody = ({ setHeadComponents }) => {
+//   setHeadComponents([
+//     <link
+//       key='print-styles'
+//       rel='stylesheet'
+//       href='/print.css'
+//       media='print'
+//     />,
+//   ])
+// }
