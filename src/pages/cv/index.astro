@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content'
+import portrait from '../../../markdown/cv/img.jpg'
+import Cv from '../../components/Cv.astro'
+import '../../css/cv.scss'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const cv = (await getCollection('pages', ({ data }) =>
+  data.published && data.templateKey === 'cv-page'))[0]
+
+if (!cv) throw new Error('Missing published cv-page content')
+---
+
+<BaseLayout title={cv.data.title} description={cv.data.description}>
+  <div class="cv-content">
+    <Cv portrait={portrait} />
+  </div>
+</BaseLayout>

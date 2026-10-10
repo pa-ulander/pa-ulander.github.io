@@ -53,6 +53,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.material-icons {
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+}
+
 html {
   height: 100%;
   min-height: 100%;
@@ -121,6 +137,20 @@ h1 {
   text-decoration: none;
   background-color: var(--card-bg-color);
   transition: all 0.3s ease;
+}
+
+.card-image-wrap img,
+.featured-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.featured-image {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  overflow: hidden;
 }
 
 .card:hover {

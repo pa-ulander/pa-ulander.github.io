@@ -1,0 +1,11 @@
+---
+import styles from './Tags/Tags.module.scss'
+
+interface Props {
+  tags?: string[]
+}
+
+const { tags = [] } = Astro.props
+---
+
+{tags.map((tag) => <span class={styles.tag}>{tag}</span>)}

@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection, render, type CollectionEntry } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('pages', ({ data }) =>
+    data.published && data.templateKey === 'blog-post'))
+    .sort((left, right) => (right.data.date?.getTime() ?? 0) - (left.data.date?.getTime() ?? 0))
+
+  return posts.map((post, index) => ({
+    params: { slug: post.data.slug },
+    props: {
+      post,
+      previous: posts[index + 1] ?? null,
+      next: posts[index - 1] ?? null,
+    },
+  }))
+}
+
+interface Props {
+  post: CollectionEntry<'pages'>
+  previous: CollectionEntry<'pages'> | null
+  next: CollectionEntry<'pages'> | null
+}
+
+const { post, previous, next } = Astro.props
+const { Content } = await render(post)
+const formattedDate = post.data.date?.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+})
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.featuredImage?.src}
+>
+  {post.data.featuredImage && (
+    <div class="featured-image">
+      <Image
+        src={post.data.featuredImage}
+        alt={post.data.title}
+        class="featured-image-gatsby"
+        width={1200}
+        height={630}
+      />
+    </div>
+  )}
+  <h1 class="post-heading">{post.data.title}</h1>
+  {formattedDate && <p class="post-date">{formattedDate}</p>}
+  {post.data.featuredText && <p class="post-date">{post.data.featuredText}</p>}
+  <article class="post-body">
+    <Content />
+    {post.data.tags.length > 0 && (
+      <footer class="post-footer">
+        <div class="post-tags">
+          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      </footer>
+    )}
+  </article>
+  <nav aria-label="Adjacent posts">
+    {previous && (
+      <a class="previous-next-button" href={`${previous.data.path}/`}>
+        {previous.data.title}
+      </a>
+    )}
+    {next && (
+      <a class="previous-next-button" href={`${next.data.path}/`}>
+        {next.data.title}
+      </a>
+    )}
+  </nav>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  posts: CollectionEntry<'pages'>[]
+}
+
+const { posts } = Astro.props
+const formatDate = (date: Date | null) =>
+  date?.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+---
+
+<div class="cards">
+  {posts.map((post) => (
+    <a class="card-link" href={`${post.data.path}/`}>
+      <article class="card">
+        {post.data.featuredImage && (
+          <div class="card-image-wrap">
+            <Image class="card-image" src={post.data.featuredImage} alt="" width={800} />
+          </div>
+        )}
+        <h2 class="card-title">{post.data.title}</h2>
+        <p class="card-description">{post.data.description}</p>
+        <time class="card-date" datetime={post.data.date?.toISOString()}>
+          {formatDate(post.data.date)}
+        </time>
+      </article>
+    </a>
+  ))}
+</div>

@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content'
+import BlogPostList from '../../components/BlogPostList.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const entries = await getCollection('pages', ({ data }) => data.published)
+const blog = entries.find(({ data }) => data.templateKey === 'blog-home')
+const posts = entries
+  .filter(({ data }) => data.templateKey === 'blog-post')
+  .sort((left, right) => (right.data.date?.getTime() ?? 0) - (left.data.date?.getTime() ?? 0))
+
+if (!blog) throw new Error('Missing published blog-home content')
+
+const { Content } = await render(blog)
+---
+
+<BaseLayout title={blog.data.title} description={blog.data.description}>
+  <div class="blog-page-content post-body">
+    <Content />
+  </div>
+  <BlogPostList posts={posts} />
+</BaseLayout>
