@@ -9,6 +9,7 @@ import '../css/style.scss'
 import '../css/print.scss'
 import '../components/HeaderNav/HeaderNav.scss'
 import { site } from '../config/site'
+import { ClientRouter, fade } from 'astro:transitions'
 
 interface Props {
   title?: string
@@ -34,7 +35,7 @@ const isActive = (url: string) =>
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -51,6 +52,7 @@ const isActive = (url: string) =>
     <meta name="twitter:description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{pageTitle}</title>
+    <ClientRouter />
     <script is:inline>
       (() => {
         const saved = localStorage.getItem('darkMode')
@@ -62,7 +64,7 @@ const isActive = (url: string) =>
     </script>
   </head>
   <body>
-    <nav class="nav" aria-label="Primary navigation">
+    <nav class="nav" aria-label="Primary navigation" transition:name="navigation" transition:animate="none">
       <ul>
         {links.map((link) => (
           <li>
@@ -86,25 +88,34 @@ const isActive = (url: string) =>
         <span class="material-icons" aria-hidden="true">print</span>
       </button>
     </nav>
-    <main class="container">
+    <main class="container" transition:name="content" transition:animate={fade({ duration: '160ms' })}>
       <slot />
     </main>
     <script>
-      const root = document.documentElement
-      const toggle = document.querySelector<HTMLInputElement>('#theme-toggle')
-      const isDark = root.classList.contains('dark-mode')
+      document.addEventListener('astro:before-swap', (event) => {
+        const dark = document.documentElement.classList.contains('dark-mode')
+        event.newDocument.documentElement.classList.toggle('dark-mode', dark)
+        event.newDocument.documentElement.classList.toggle('light-mode', !dark)
+        const toggle = event.newDocument.querySelector<HTMLInputElement>('#theme-toggle')
+        if (toggle) toggle.checked = dark
+      })
 
-      if (toggle) {
-        toggle.checked = isDark
-        toggle.addEventListener('change', () => {
-          const dark = toggle.checked
-          root.classList.toggle('dark-mode', dark)
-          root.classList.toggle('light-mode', !dark)
-          localStorage.setItem('darkMode', String(dark))
-        })
-      }
+      document.addEventListener('astro:page-load', () => {
+        const root = document.documentElement
+        const toggle = document.querySelector<HTMLInputElement>('#theme-toggle')
 
-      document.querySelector('#print-page')?.addEventListener('click', () => print())
+        if (toggle) {
+          toggle.checked = root.classList.contains('dark-mode')
+          toggle.addEventListener('change', () => {
+            const dark = toggle.checked
+            root.classList.toggle('dark-mode', dark)
+            root.classList.toggle('light-mode', !dark)
+            localStorage.setItem('darkMode', String(dark))
+          })
+        }
+
+        document.querySelector('#print-page')?.addEventListener('click', () => print())
+      })
     </script>
   </body>
 </html>
