@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 import portrait from '../../../markdown/cv/img.jpg'
 import Cv from '../../components/Cv.astro'
-import '../../css/cv.scss'
+import '../../styles/cv.scss'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
 const cv = (await getCollection('pages', ({ data }) =>
