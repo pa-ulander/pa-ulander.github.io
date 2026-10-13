@@ -6,6 +6,7 @@
   "scripts": {
     "develop": "astro dev",
     "start": "astro dev",
+    "stop": "astro dev stop",
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "npm run build && gh-pages -d dist -b gh-pages -r https://$GH_TOKEN@github.com/pa-ulander/pa-ulander.github.io.git",
