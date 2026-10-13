@@ -1,3 +1,22 @@
+export interface CvRole {
+  role: string
+  workedfor: string
+  header?: string
+  period: string | null
+  subheader?: string
+  summary: string
+  tools?: string
+  tooltags?: string[]
+}
+
+interface RoleData {
+  current_role: CvRole & { subheader: string; tooltags: string[] }
+  last_employment: CvRole & { subheader: string; tooltags: string[] }
+  roles_2007_2014: CvRole[]
+  roles_2000_2007: CvRole[]
+  additional_clients: string[]
+}
+
 export const roleData = {
   current_role: {
     role: `Systemutvecklare`,
@@ -356,4 +375,4 @@ export const roleData = {
     'Photoolix',
     'Sveriges Musikskatter',
   ],
-}
+} satisfies RoleData
