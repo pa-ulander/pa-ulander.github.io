@@ -6,7 +6,6 @@ dist
 
 # cache
 public
-page-data
 .cache
 .history
 
