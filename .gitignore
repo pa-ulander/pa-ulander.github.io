@@ -2,6 +2,7 @@ node_modules
 dist
 .astro
 .vscode
+.mcp.json
 
 # cache
 public
