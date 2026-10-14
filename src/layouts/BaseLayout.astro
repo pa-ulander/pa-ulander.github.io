@@ -1,14 +1,15 @@
 ---
-import '@fontsource/material-icons'
-import '@fontsource/open-sans'
 import '@fontsource/roboto'
-import '@fontsource/roboto-slab'
 import '../styles/style.scss'
 import '../styles/print.scss'
 import '../styles/HeaderNav.scss'
+import '../styles/fonts.scss'
 import { site } from '../config/site'
 import { ClientRouter, fade } from 'astro:transitions'
 import ThemeToggle from '../components/ThemeToggle.astro'
+import materialIconsFont from '@fontsource/material-icons/files/material-icons-latin-400-normal.woff2?url'
+import openSansFont from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
+import robotoSlabFont from '@fontsource/roboto-slab/files/roboto-slab-latin-400-normal.woff2?url'
 
 interface Props {
   title?: string
@@ -53,6 +54,27 @@ const isActive = (url: string) =>
     <meta name='twitter:title' content={pageTitle} />
     <meta name='twitter:description' content={description} />
     <link rel='canonical' href={canonicalUrl} />
+    <link
+      rel='preload'
+      href={materialIconsFont}
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href={openSansFont}
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href={robotoSlabFont}
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
     <title>{pageTitle}</title>
     <ClientRouter />
     <script is:inline>
