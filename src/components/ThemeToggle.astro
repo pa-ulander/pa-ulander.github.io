@@ -5,6 +5,18 @@
   </div>
 </li>
 
+<script is:inline>
+  const toggle = document.getElementById('theme-toggle')
+  if (toggle instanceof HTMLInputElement) {
+    toggle.checked = document.documentElement.classList.contains('dark-mode')
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+        document.documentElement.classList.add('theme-toggle-ready'),
+      ),
+    )
+  }
+</script>
+
 <script>
   const boundToggles: WeakSet<HTMLInputElement> = new WeakSet()
 
