@@ -1,0 +1,39 @@
+<li class='toggler'>
+  <div class='dark-button'>
+    <input type='checkbox' id='theme-toggle' aria-label='Toggle dark mode' />
+    <label for='theme-toggle'></label>
+  </div>
+</li>
+
+<script>
+  const boundToggles: WeakSet<HTMLInputElement> = new WeakSet()
+
+  const syncToggle = () => {
+    const root = document.documentElement
+    const toggle = document.querySelector<HTMLInputElement>('#theme-toggle')
+    if (!toggle) return
+
+    toggle.checked = root.classList.contains('dark-mode')
+    if (boundToggles.has(toggle)) return
+
+    boundToggles.add(toggle)
+    toggle.addEventListener('change', () => {
+      const dark = toggle.checked
+      root.classList.toggle('dark-mode', dark)
+      root.classList.toggle('light-mode', !dark)
+      localStorage.setItem('darkMode', String(dark))
+    })
+  }
+
+  document.addEventListener('astro:before-swap', (event) => {
+    const dark = document.documentElement.classList.contains('dark-mode')
+    event.newDocument.documentElement.classList.toggle('dark-mode', dark)
+    event.newDocument.documentElement.classList.toggle('light-mode', !dark)
+    const toggle =
+      event.newDocument.querySelector<HTMLInputElement>('#theme-toggle')
+    if (toggle) toggle.checked = dark
+  })
+
+  document.addEventListener('astro:page-load', syncToggle)
+  syncToggle()
+</script>
