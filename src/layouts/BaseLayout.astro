@@ -8,6 +8,7 @@ import '../styles/print.scss'
 import '../styles/HeaderNav.scss'
 import { site } from '../config/site'
 import { ClientRouter, fade } from 'astro:transitions'
+import ThemeToggle from '../components/ThemeToggle.astro'
 
 interface Props {
   title?: string
@@ -91,16 +92,7 @@ const isActive = (url: string) =>
             </li>
           ))
         }
-        <li class='toggler'>
-          <div class='dark-button'>
-            <input
-              type='checkbox'
-              id='theme-toggle'
-              aria-label='Toggle dark mode'
-            />
-            <label for='theme-toggle'></label>
-          </div>
-        </li>
+        <ThemeToggle />
       </ul>
       <button
         class='navprinticon'
@@ -119,30 +111,8 @@ const isActive = (url: string) =>
     >
       <slot />
     </main>
-    <script lang='ts'>
-      document.addEventListener('astro:before-swap', (event) => {
-        const dark = document.documentElement.classList.contains('dark-mode')
-        event.newDocument.documentElement.classList.toggle('dark-mode', dark)
-        event.newDocument.documentElement.classList.toggle('light-mode', !dark)
-        const toggle =
-          event.newDocument.querySelector<HTMLInputElement>('#theme-toggle')
-        if (toggle) toggle.checked = dark
-      })
-
+    <script>
       document.addEventListener('astro:page-load', () => {
-        const root = document.documentElement
-        const toggle = document.querySelector<HTMLInputElement>('#theme-toggle')
-
-        if (toggle) {
-          toggle.checked = root.classList.contains('dark-mode')
-          toggle.addEventListener('change', () => {
-            const dark = toggle.checked
-            root.classList.toggle('dark-mode', dark)
-            root.classList.toggle('light-mode', !dark)
-            localStorage.setItem('darkMode', String(dark))
-          })
-        }
-
         document
           .querySelector('#print-page')
           ?.addEventListener('click', () => print())
