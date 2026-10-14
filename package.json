@@ -14,7 +14,7 @@
     "check": "astro check",
     "type-check": "astro check",
     "test": "npm run build",
-    "test:e2e": "playwright test"
+    "test:e2e": "npm run build && playwright test"
   },
   "repository": {
     "type": "git",
