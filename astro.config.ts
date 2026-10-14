@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config'
 
 export default defineConfig({
   site: 'https://pa-ulander.github.io',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   integrations: [mdx()],
 })
