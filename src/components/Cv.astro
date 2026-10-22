@@ -15,7 +15,8 @@ const { portrait } = Astro.props
 const {
   current_role: currentRole,
   last_employment: lastEmployment,
-  roles_2007_2014: roles2007To2014,
+  roles_2014_2021: roles2014To2021,
+  roles_2007_2013: roles2007To2013,
   roles_2000_2007: roles2000To2007,
   additional_clients: additionalClients,
 } = roleData
@@ -27,7 +28,8 @@ const featuredRoles = [
   lastEmployment,
 ]
 const roleSections = [
-  { heading: 'Uppdragsgivare 2007-2014', roles: roles2007To2014 },
+  { heading: 'Uppdragsgivare 2014-2021', roles: roles2014To2021 },
+  { heading: 'Uppdragsgivare 2007-2013', roles: roles2007To2013 },
   {
     heading: 'Uppdragsgivare/genomförda projekt 2000-2007, ett urval',
     roles: roles2000To2007,
@@ -125,7 +127,7 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
             <div class={roleStyles.period}>{role.period}</div>
             <div class={roleStyles.summary} set:html={role.summary} />
             <div>
-              <h4>Verktyg / Teknologier</h4>
+              <div class='tools' set:html={role.tools} />
               <Tags tags={role.tooltags} />
             </div>
           </div>

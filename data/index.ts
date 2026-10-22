@@ -12,19 +12,30 @@ export interface CvRole {
 interface RoleData {
   current_role: CvRole & { subheader: string; tooltags: string[] }
   last_employment: CvRole & { subheader: string; tooltags: string[] }
-  roles_2007_2014: CvRole[]
+  roles_2014_2021: CvRole[]
+  roles_2007_2013: CvRole[]
   roles_2000_2007: CvRole[]
   additional_clients: string[]
 }
 
 export const roleData = {
   current_role: {
+    role: `Independent Software Developer`,
+    workedfor: `Self Employed`,
+    header: `Utvecklare`,
+    period: `Apr 2026 - now`,
+    subheader: `Nuvarande projekt`,
+    summary: `....`,
+    tools: ``,
+    tooltags: [],
+  },
+  last_employment: {
     role: `Systemutvecklare`,
     workedfor: `Natur & Kultur`,
     header: `Systemutvecklare`,
-    period: `Apr 2021 - nu`,
-    subheader: `Nuvarande anställning`,
-    summary: `Arbetar med systemutveckling, systemförvaltning och devops av Natur & Kulturs plattform för digitala läromedel och kurslitteratur.`,
+    period: `Apr 2021 - Mar 2026 (5år)`,
+    subheader: `Senaste anställning`,
+    summary: `Arbetade med systemutveckling, systemförvaltning och devops av Natur & Kulturs plattform för digitala läromedel och kurslitteratur.`,
     tools: `<h4>Verktyg/ Teknologier</h4>`,
     tooltags: [
       'Ubuntu',
@@ -47,46 +58,45 @@ export const roleData = {
       'AWS',
     ],
   },
-  last_employment: {
-    role: `Systemutvecklare och Webbutvecklare (konsult)`,
-    workedfor: `Egenanställd`,
-    header: `Systemutvecklare och Webbutvecklare (konsult)`,
-    period: `Nov 2019 - Apr 2021 (1år 6 månader)`,
-    subheader: `Nuvarande projekt`,
-    summary: `Utveckling av varukatalog. Headless cms gjord från scratch. Api för administrering av produkter och annat content. Frontend gjord med React. Prerendering med Puppeteer. Design av webbsajt.`,
-    tools: `<h4>Verktyg/ Teknologier</h4>`,
-    tooltags: [
-      'Ubuntu',
-      'CentOS',
-      'Nginx',
-      'Apache',
-      'PHP',
-      'Laravel',
-      'Lumen',
-      'Headless cms',
-      'Nodejs',
-      'MySQL',
-      'MariaDB',
-      'React',
-      'Reactstrap',
-      'Redux',
-      'Gatsby',
-      'Webpack',
-      'Gulp',
-      'Vue',
-      'Vuex',
-      'Bootstrap',
-      'Vuetify',
-      'PhpUnit',
-      'Jest',
-      'Docker',
-      'Git',
-      'AWS Lightsail',
-      'Jenkins',
-    ],
-  },
 
-  roles_2007_2014: [
+  roles_2014_2021: [
+    {
+      role: `Systemutvecklare och Webbutvecklare (konsult)`,
+      workedfor: `Egenanställd`,
+      header: `Systemutvecklare och Webbutvecklare (konsult)`,
+      period: `Nov 2019 - Apr 2021 (1år 6 månader)`,
+      summary: `Utveckling av varukatalog. Headless cms gjord från scratch. Api för administrering av produkter och annat content. Frontend gjord med React. Prerendering med Puppeteer. Design av webbsajt.`,
+      tools: `<h4>Verktyg/ Teknologier</h4>`,
+      tooltags: [
+        'Ubuntu',
+        'CentOS',
+        'Nginx',
+        'Apache',
+        'PHP',
+        'Laravel',
+        'Lumen',
+        'Headless cms',
+        'Nodejs',
+        'MySQL',
+        'MariaDB',
+        'React',
+        'Reactstrap',
+        'Redux',
+        'Gatsby',
+        'Webpack',
+        'Gulp',
+        'Vue',
+        'Vuex',
+        'Bootstrap',
+        'Vuetify',
+        'PhpUnit',
+        'Jest',
+        'Docker',
+        'Git',
+        'AWS Lightsail',
+        'Jenkins',
+      ],
+    },
     {
       role: `Systemutvecklare`,
       workedfor: `STIM - Svenska Tonsättares Internationella Musikbyrå`,
@@ -146,6 +156,8 @@ export const roleData = {
         'Scrum',
       ],
     },
+  ],
+  roles_2007_2013: [
     {
       role: `Systemtvecklare, IT-ansvarig`,
       workedfor: `Drömgården-DreamFarm International AB`,
