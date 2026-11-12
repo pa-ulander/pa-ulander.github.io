@@ -1,6 +1,7 @@
 ---
-import { getCollection, render } from 'astro:content'
+import { getCollection } from 'astro:content'
 import BlogPostList from '../components/BlogPostList.astro'
+import HomeHero from '../components/HomeHero.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 const entries = await getCollection('pages', ({ data }) => data.published)
@@ -11,12 +12,9 @@ const posts = entries
 
 if (!home) throw new Error('Missing published home-page content')
 
-const { Content } = await render(home)
 ---
 
 <BaseLayout title={home.data.title} description={home.data.description} contentClass="reading-layout">
-  <div class="page-intro post-body">
-    <Content />
-  </div>
+  <HomeHero />
   <BlogPostList posts={posts} />
 </BaseLayout>
