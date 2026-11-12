@@ -1,5 +1,7 @@
 node_modules
 dist
+.github
+!.github/workflows
 .astro
 .vscode
 .mcp.json
