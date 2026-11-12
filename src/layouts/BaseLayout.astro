@@ -6,6 +6,7 @@ import '../styles/HeaderNav.scss'
 import '../styles/fonts.scss'
 import { site } from '../config/site'
 import { ClientRouter, fade } from 'astro:transitions'
+import SiteFooter from '../components/SiteFooter.astro'
 import ThemeToggle from '../components/ThemeToggle.astro'
 import materialIconsFont from '@fontsource/material-icons/files/material-icons-latin-400-normal.woff2?url'
 import openSansFont from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
@@ -138,6 +139,7 @@ const isActive = (url: string) =>
     >
       <slot />
     </main>
+    <SiteFooter />
     <script>
       document.addEventListener('astro:page-load', () => {
         document
@@ -145,5 +147,8 @@ const isActive = (url: string) =>
           ?.addEventListener('click', () => print())
       })
     </script>
-  </body>
+  <!-- impeccable-live-start -->
+<script is:inline src="http://localhost:8400/live.js?token=d42478b0-1ab1-49c1-adae-b127aabf7e44"></script>
+<!-- impeccable-live-end -->
+</body>
 </html>
