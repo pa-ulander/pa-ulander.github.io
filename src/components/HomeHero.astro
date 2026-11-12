@@ -1,0 +1,46 @@
+---
+import { site } from '../config/site'
+
+const offers = [
+  {
+    title: 'Web applications',
+    text: 'Frontends and backends designed around what your users actually need to get done.',
+  },
+  {
+    title: 'Systems and integrations',
+    text: 'Connecting the services, data and tools your business already runs on.',
+  },
+  {
+    title: 'Technical consulting',
+    text: 'Code review, architecture advice and hands-on help to get a stalled project moving.',
+  },
+]
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <h1 id="hero-title" class="hero-title">
+    Web and system development, from first sketch to production.
+  </h1>
+  <p class="hero-lead">
+    I'm a freelance developer. I work on my own or alongside your team, and I
+    stay with a project until it runs reliably.
+  </p>
+
+  <ul class="hero-offers">
+    {offers.map((offer) => (
+      <li>
+        <h2 class="hero-offer-title">{offer.title}</h2>
+        <p>{offer.text}</p>
+      </li>
+    ))}
+  </ul>
+
+  <div class="hero-offer">
+    <p>
+      <strong>My offer:</strong> a short call to understand the problem, then a
+      clear plan and estimate. Fixed-scope projects or ongoing hours, whichever
+      suits the work.
+    </p>
+    <a class="cta-button" href={site.social.email}>Start a conversation</a>
+  </div>
+</section>
