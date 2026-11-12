@@ -2,6 +2,7 @@ node_modules
 dist
 .github
 !.github/workflows
+.impeccable
 .astro
 .vscode
 .mcp.json
