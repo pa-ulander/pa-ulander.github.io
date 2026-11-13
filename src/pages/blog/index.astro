@@ -13,9 +13,10 @@ if (!blog) throw new Error('Missing published blog-home content')
 const { Content } = await render(blog)
 ---
 
-<BaseLayout title={blog.data.title} description={blog.data.description} contentClass="reading-layout">
-  <div class="page-intro blog-page-content post-body">
+<BaseLayout title={blog.data.title} description={blog.data.description}>
+  <header class="page-header blog-intro" data-enter>
+    <p class="eyebrow">Blog</p>
     <Content />
-  </div>
+  </header>
   <BlogPostList posts={posts} />
 </BaseLayout>
