@@ -1,5 +1,4 @@
 ---
-import '@fontsource/roboto'
 import '../styles/style.scss'
 import '../styles/print.scss'
 import '../styles/HeaderNav.scss'
@@ -11,6 +10,11 @@ import ThemeToggle from '../components/ThemeToggle.astro'
 import materialIconsFont from '@fontsource/material-icons/files/material-icons-latin-400-normal.woff2?url'
 import openSansFont from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
 import robotoSlabFont from '@fontsource/roboto-slab/files/roboto-slab-latin-400-normal.woff2?url'
+import robotoSlabBoldFont from '@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2?url'
+import robotoFont from '@fontsource/roboto/files/roboto-latin-400-normal.woff2?url'
+
+// Preload every font-display: optional face in fonts.scss so it is ready for first paint instead of swapping in later.
+const preloadFonts = [materialIconsFont, openSansFont, robotoSlabFont, robotoSlabBoldFont, robotoFont]
 
 interface Props {
   title?: string
@@ -57,27 +61,11 @@ const isActive = (url: string) =>
     <meta name='twitter:title' content={pageTitle} />
     <meta name='twitter:description' content={description} />
     <link rel='canonical' href={canonicalUrl} />
-    <link
-      rel='preload'
-      href={materialIconsFont}
-      as='font'
-      type='font/woff2'
-      crossorigin
-    />
-    <link
-      rel='preload'
-      href={openSansFont}
-      as='font'
-      type='font/woff2'
-      crossorigin
-    />
-    <link
-      rel='preload'
-      href={robotoSlabFont}
-      as='font'
-      type='font/woff2'
-      crossorigin
-    />
+    {
+      preloadFonts.map((href) => (
+        <link rel='preload' href={href} as='font' type='font/woff2' crossorigin />
+      ))
+    }
     <title>{pageTitle}</title>
     <ClientRouter />
     <script is:inline>

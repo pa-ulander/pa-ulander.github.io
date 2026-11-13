@@ -29,7 +29,16 @@
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url('@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('@fontsource/roboto/files/roboto-latin-400-normal.woff2')
     format('woff2');
 }
