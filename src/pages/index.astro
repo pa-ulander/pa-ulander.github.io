@@ -1,14 +1,13 @@
 ---
+import { getPosts } from '../posts'
 import { getCollection } from 'astro:content'
 import BlogPostList from '../components/BlogPostList.astro'
 import HomeHero from '../components/HomeHero.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const entries = await getCollection('pages', ({ data }) => data.published)
-const home = entries.find(({ data }) => data.templateKey === 'home-page')
-const posts = entries
-  .filter(({ data }) => data.templateKey === 'blog-post')
-  .sort((left, right) => (right.data.date?.getTime() ?? 0) - (left.data.date?.getTime() ?? 0))
+const home = (await getCollection('pages', ({ data }) =>
+  data.published && data.templateKey === 'home-page'))[0]
+const posts = await getPosts()
 
 if (!home) throw new Error('Missing published home-page content')
 
