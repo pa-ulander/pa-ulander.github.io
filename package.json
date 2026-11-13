@@ -9,7 +9,6 @@
     "stop": "astro dev stop",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "deploy": "npm run build && main -d dist -b main -r https://$GH_TOKEN@github.com/pa-ulander/pa-ulander.github.io.git",
     "clean": "rm -rf .astro dist",
     "check": "astro check",
     "type-check": "astro check",
@@ -41,7 +40,6 @@
     "@astrojs/check": "^0.9.12",
     "@playwright/test": "^1.64.0",
     "@types/node": "^24.19.2",
-    "gh-pages": "^6.1.1",
     "typescript": "^5.8.3"
   }
 }
