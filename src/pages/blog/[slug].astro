@@ -1,12 +1,11 @@
 ---
 import { Image } from 'astro:assets'
-import { getCollection, render, type CollectionEntry } from 'astro:content'
+import { render, type CollectionEntry } from 'astro:content'
+import { getPosts } from '../../posts'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('pages', ({ data }) =>
-    data.published && data.templateKey === 'blog-post'))
-    .sort((left, right) => (right.data.date?.getTime() ?? 0) - (left.data.date?.getTime() ?? 0))
+  const posts = await getPosts()
 
   return posts.map((post, index) => ({
     params: { slug: post.data.slug },
@@ -72,13 +71,13 @@ const formattedDate = post.data.date?.toLocaleDateString('en-GB', {
   </article>
   <nav class="post-navigation" aria-label="Adjacent posts">
     {previous && (
-      <a class="previous-next-button" href={`${previous.data.path}/`}>
+      <a class="previous-next-button" href={`/blog/${previous.data.slug}/`}>
         <span class="post-navigation-label">Older post</span>
         <span>{previous.data.title}</span>
       </a>
     )}
     {next && (
-      <a class="previous-next-button post-navigation-next" href={`${next.data.path}/`}>
+      <a class="previous-next-button post-navigation-next" href={`/blog/${next.data.slug}/`}>
         <span class="post-navigation-label">Newer post</span>
         <span>{next.data.title}</span>
       </a>
