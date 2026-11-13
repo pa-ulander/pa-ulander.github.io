@@ -17,7 +17,7 @@ const formatDate = (date: Date | null) =>
 
 <div class="cards">
   {posts.map((post) => (
-    <a class="card-link" href={`${post.data.path}/`}>
+    <a class="card-link" href={`/blog/${post.data.slug}/`}>
       <article class="card">
         {post.data.featuredImage && (
           <div class="card-image-wrap">
