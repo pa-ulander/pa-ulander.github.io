@@ -11,11 +11,9 @@ const pages = defineCollection({
       date: z.coerce.date().nullable(),
       featuredImage: image().optional(),
       featuredText: z.string().optional(),
-      pageType: z.string(),
       templateKey: z.enum(['home-page', 'blog-home', 'blog-post', 'cv-page']),
       published: z.boolean(),
       slug: z.string(),
-      path: z.string(),
       tags: z.array(z.string()).default([]),
     }),
 })

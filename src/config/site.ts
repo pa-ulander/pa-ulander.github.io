@@ -1,11 +1,11 @@
 export const site = {
   title: 'Yet another developers personal website',
-  description: 'Learning Gatsby and other things',
+  description: 'Freelance web and system developer PA Ulander',
   author: 'pa@kabelkultur.se',
   social: {
     email: 'mailto:pa@kabelkultur.se',
     linkedin: 'https://linkedin.com/in/paulander',
-    twitter: 'https://twitter.com/pa_ulander',
+    twitter: '@pa_ulander',
     github: 'https://github.com/pa-ulander',
   },
   actions: {
