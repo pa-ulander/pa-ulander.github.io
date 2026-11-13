@@ -11,9 +11,79 @@ const posts = await getPosts()
 
 if (!home) throw new Error('Missing published home-page content')
 
+const services = [
+  {
+    title: 'Web applications',
+    text: 'Frontends and backends designed around what your users actually need to get done.',
+  },
+  {
+    title: 'Systems and integrations',
+    text: 'Connecting the services, data and tools your business already runs on.',
+  },
+  {
+    title: 'Technical consulting',
+    text: 'Code review, architecture advice and hands-on help to get a stalled project moving.',
+  },
+]
+
+// A selection of clients from the CV.
+const clients = [
+  'Natur & Kultur',
+  'STIM',
+  'Stockholms stad',
+  'SVT / UR',
+  'Infodea',
+  'DreamFarm International',
+  'Algovik Produktion',
+  'Q\u2011Houses',
+  'Handtryckta Tapeter',
+  'Evenemangslinjen',
+]
 ---
 
-<BaseLayout title={home.data.title} description={home.data.description} contentClass="reading-layout">
+<BaseLayout title={home.data.title} description={home.data.description}>
   <HomeHero />
-  <BlogPostList posts={posts} />
+
+  <section class="section rail" aria-labelledby="services-title">
+    <div>
+      <p class="eyebrow">Services</p>
+      <h2 id="services-title" class="section-title">What I build</h2>
+    </div>
+    <div>
+      <ol class="services">
+        {services.map((service) => (
+          <li>
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="services-note">
+        <strong>How it starts:</strong> a short call to understand the problem,
+        then a clear plan and estimate. Fixed-scope projects or ongoing hours,
+        whichever suits the work.
+      </p>
+    </div>
+  </section>
+
+  <section class="section rail" aria-labelledby="clients-title">
+    <div>
+      <p class="eyebrow">Clients</p>
+      <h2 id="clients-title" class="section-title">Who I've worked for</h2>
+    </div>
+    <div>
+      <ul class="client-list">
+        {clients.map((client) => <li>{client}</li>)}
+      </ul>
+      <a class="text-link" href="/cv/">Full history in the CV</a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="writing-title">
+    <div class="section-head">
+      <h2 id="writing-title" class="section-title">From the blog</h2>
+      <a class="text-link" href="/blog/">All posts</a>
+    </div>
+    <BlogPostList posts={posts.slice(0, 3)} />
+  </section>
 </BaseLayout>
