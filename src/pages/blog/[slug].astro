@@ -36,51 +36,52 @@ const formattedDate = post.data.date?.toLocaleDateString('en-GB', {
   title={post.data.title}
   description={post.data.description}
   image={post.data.featuredImage?.src}
-  contentClass="reading-layout"
 >
+  <header class="post-header" data-enter>
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1 class="post-heading">{post.data.title}</h1>
+    {post.data.featuredText && <p class="post-deck">{post.data.featuredText}</p>}
+  </header>
   {post.data.featuredImage && (
     <div class="featured-image">
       <Image
         src={post.data.featuredImage}
         alt={post.data.title}
-        class="featured-image-gatsby"
         width={1200}
         widths={[480, 800, 1200]}
-        sizes="(min-width: 1264px) 1200px, 94vw"
+        sizes="(min-width: 1264px) 1152px, 94vw"
       />
     </div>
   )}
-  <header class="post-header">
-    <h1 class="post-heading">{post.data.title}</h1>
-    {formattedDate && (
-      <p class="post-date">
-        <time datetime={post.data.date?.toISOString()}>{formattedDate}</time>
-      </p>
-    )}
-    {post.data.featuredText && <p class="post-deck">{post.data.featuredText}</p>}
-  </header>
-  <article class="post-body">
-    <Content />
-    {post.data.tags.length > 0 && (
-      <footer class="post-footer">
+  <div class="rail">
+    <aside class="post-meta" aria-label="Post details">
+      {formattedDate && (
+        <p><time datetime={post.data.date?.toISOString()}>{formattedDate}</time></p>
+      )}
+      {post.data.tags.length > 0 && (
         <ul class="post-tags" aria-label="Tags">
           {post.data.tags.map((tag) => <li class="tag">{tag}</li>)}
         </ul>
-      </footer>
-    )}
-  </article>
-  <nav class="post-navigation" aria-label="Adjacent posts">
-    {previous && (
-      <a class="previous-next-button" href={`/blog/${previous.data.slug}/`}>
-        <span class="post-navigation-label">Older post</span>
-        <span>{previous.data.title}</span>
-      </a>
-    )}
-    {next && (
-      <a class="previous-next-button post-navigation-next" href={`/blog/${next.data.slug}/`}>
-        <span class="post-navigation-label">Newer post</span>
-        <span>{next.data.title}</span>
-      </a>
-    )}
-  </nav>
+      )}
+    </aside>
+    <div class="post-main">
+      <article class="post-body">
+        <Content />
+      </article>
+      <nav class="post-navigation" aria-label="Adjacent posts">
+        {previous && (
+          <a class="previous-next-button" href={`/blog/${previous.data.slug}/`}>
+            <span class="post-navigation-label">Older post</span>
+            <span>{previous.data.title}</span>
+          </a>
+        )}
+        {next && (
+          <a class="previous-next-button post-navigation-next" href={`/blog/${next.data.slug}/`}>
+            <span class="post-navigation-label">Newer post</span>
+            <span>{next.data.title}</span>
+          </a>
+        )}
+      </nav>
+    </div>
+  </div>
 </BaseLayout>
