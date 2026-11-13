@@ -11,10 +11,10 @@ import materialIconsFont from '@fontsource/material-icons/files/material-icons-l
 import openSansFont from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
 import robotoSlabFont from '@fontsource/roboto-slab/files/roboto-slab-latin-400-normal.woff2?url'
 import robotoSlabBoldFont from '@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2?url'
-import robotoFont from '@fontsource/roboto/files/roboto-latin-400-normal.woff2?url'
+import openSansSemiboldFont from '@fontsource/open-sans/files/open-sans-latin-600-normal.woff2?url'
 
 // Preload every font-display: optional face in fonts.scss so it is ready for first paint instead of swapping in later.
-const preloadFonts = [materialIconsFont, openSansFont, robotoSlabFont, robotoSlabBoldFont, robotoFont]
+const preloadFonts = [materialIconsFont, openSansFont, robotoSlabFont, robotoSlabBoldFont, openSansSemiboldFont]
 
 interface Props {
   title?: string
@@ -89,34 +89,39 @@ const isActive = (url: string) =>
       transition:name='navigation'
       transition:animate='none'
     >
-      <ul>
-        {
-          links.map((link) => (
-            <li>
-              <a
-                href={link.url}
-                class:list={[
-                  'navButton',
-                  { navButton__active: isActive(link.url) },
-                ]}
-                aria-current={isActive(link.url) ? 'page' : undefined}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
-        <ThemeToggle />
-      </ul>
-      <button
-        class='navprinticon'
-        id='print-page'
-        type='button'
-        title='Skriv ut'
-        aria-label='Skriv ut'
-      >
-        <span class='material-icons' aria-hidden='true'>print</span>
-      </button>
+      <div class='nav-inner wrap'>
+        <a class='nav-brand' href='/'>PA Ulander</a>
+        <ul>
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  class:list={[
+                    'navButton',
+                    { navButton__active: isActive(link.url) },
+                  ]}
+                  aria-current={isActive(link.url) ? 'page' : undefined}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+          <ThemeToggle />
+          <li>
+            <button
+              class='navprinticon'
+              id='print-page'
+              type='button'
+              title='Skriv ut'
+              aria-label='Skriv ut'
+            >
+              <span class='material-icons' aria-hidden='true'>print</span>
+            </button>
+          </li>
+        </ul>
+      </div>
     </nav>
     <main
       id='main-content'
