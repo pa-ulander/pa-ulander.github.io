@@ -109,9 +109,9 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
             </ul>
           </div>
           <div class='print-only'>
-            <b>Linkedin:</b> linkedin.com/in/paulander <br />
-            <b>Github:</b> github.com/pa-ulander <br />
-            <b>E-post:</b> pa@kabelkultur.se <br />
+            <b>Linkedin:</b> {site.social.linkedin.replace('https://', '')} <br />
+            <b>Github:</b> {site.social.github.replace('https://', '')} <br />
+            <b>E-post:</b> {site.social.email.replace('mailto:', '')} <br />
           </div>
         </div>
       </div>
@@ -174,12 +174,6 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
     </div>
   </section>
 </div>
-
-<script lang='ts'>
-  document.querySelectorAll('[data-print]').forEach((button) => {
-    button.addEventListener('click', () => print())
-  })
-</script>
 
 <style>
   .portrait {
