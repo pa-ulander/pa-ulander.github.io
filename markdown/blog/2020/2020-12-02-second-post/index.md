@@ -4,11 +4,9 @@ description: Second post meta description
 date: 2020-12-02
 featuredImage: ./image.jpeg
 featuredText: Second post featured text
-pageType: blog
 templateKey: blog-post
 published: true
 slug: second-post-has-cats
-path: /blog/second-post-has-cats
 tags:
   - cats
   - meow 
