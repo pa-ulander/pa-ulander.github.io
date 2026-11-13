@@ -122,7 +122,7 @@ test('theme preference survives client-side navigation', async ({ page }) => {
   await expect(page).toHaveURL(/\/blog\/$/)
   await expect(page.locator('html')).toHaveClass(/dark-mode/)
   await expect(page.locator('#theme-toggle')).toBeChecked()
-  await expect(page.getByRole('link', { name: 'CV' })).toBeVisible()
+  await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'CV' })).toBeVisible()
 })
 
 test('print control calls the browser print function', async ({ page }) => {
@@ -134,6 +134,21 @@ test('print control calls the browser print function', async ({ page }) => {
   })
 
   await page.locator('#print-page').click()
+  await expect(page.locator('html')).toHaveAttribute('data-print-called', 'true')
+})
+
+test('CV print button still works after client-side navigation', async ({ page }) => {
+  await page.goto('/')
+  for (const name of ['CV', 'BLOG', 'CV']) {
+    await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name, exact: true }).click()
+  }
+  await expect(page).toHaveURL(/\/cv\/$/)
+  await page.evaluate(() => {
+    window.print = () => {
+      document.documentElement.dataset.printCalled = 'true'
+    }
+  })
+  await page.locator('[data-print]').click()
   await expect(page.locator('html')).toHaveAttribute('data-print-called', 'true')
 })
 
@@ -219,7 +234,7 @@ test('skip link and theme switch work with the keyboard', async ({ page }) => {
   await page.keyboard.press('Enter')
   await expect(page.locator('main')).toBeFocused()
 
-  await page.getByRole('link', { name: 'CV', exact: true }).focus()
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'CV', exact: true }).focus()
   await page.keyboard.press('Tab')
   const toggle = page.getByRole('checkbox', { name: 'Toggle dark mode' })
   await expect(toggle).toBeFocused()
