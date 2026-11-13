@@ -1,26 +1,33 @@
 ---
-import '@fontsource/roboto'
 import '../styles/style.scss'
 import '../styles/print.scss'
 import '../styles/HeaderNav.scss'
 import '../styles/fonts.scss'
 import { site } from '../config/site'
 import { ClientRouter, fade } from 'astro:transitions'
+import SiteFooter from '../components/SiteFooter.astro'
 import ThemeToggle from '../components/ThemeToggle.astro'
 import materialIconsFont from '@fontsource/material-icons/files/material-icons-latin-400-normal.woff2?url'
 import openSansFont from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff2?url'
 import robotoSlabFont from '@fontsource/roboto-slab/files/roboto-slab-latin-400-normal.woff2?url'
+import robotoSlabBoldFont from '@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2?url'
+import openSansSemiboldFont from '@fontsource/open-sans/files/open-sans-latin-600-normal.woff2?url'
+
+// Preload every font-display: optional face in fonts.scss so it is ready for first paint instead of swapping in later.
+const preloadFonts = [materialIconsFont, openSansFont, robotoSlabFont, robotoSlabBoldFont, openSansSemiboldFont]
 
 interface Props {
   title?: string
   description?: string
   image?: string
+  contentClass?: string
 }
 
 const {
   title = site.title,
   description = site.description,
   image,
+  contentClass,
 } = Astro.props
 const pageTitle = title === site.title ? title : `${title} | ${site.title}`
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
@@ -54,27 +61,11 @@ const isActive = (url: string) =>
     <meta name='twitter:title' content={pageTitle} />
     <meta name='twitter:description' content={description} />
     <link rel='canonical' href={canonicalUrl} />
-    <link
-      rel='preload'
-      href={materialIconsFont}
-      as='font'
-      type='font/woff2'
-      crossorigin
-    />
-    <link
-      rel='preload'
-      href={openSansFont}
-      as='font'
-      type='font/woff2'
-      crossorigin
-    />
-    <link
-      rel='preload'
-      href={robotoSlabFont}
-      as='font'
-      type='font/woff2'
-      crossorigin
-    />
+    {
+      preloadFonts.map((href) => (
+        <link rel='preload' href={href} as='font' type='font/woff2' crossorigin />
+      ))
+    }
     <title>{pageTitle}</title>
     <ClientRouter />
     <script is:inline>
@@ -91,53 +82,62 @@ const isActive = (url: string) =>
     </script>
   </head>
   <body>
+    <a class='skip-link' href='#main-content'>Skip to content</a>
     <nav
       class='nav'
       aria-label='Primary navigation'
       transition:name='navigation'
       transition:animate='none'
     >
-      <ul>
-        {
-          links.map((link) => (
-            <li>
-              <a
-                href={link.url}
-                class:list={[
-                  'navButton',
-                  { navButton__active: isActive(link.url) },
-                ]}
-                aria-current={isActive(link.url) ? 'page' : undefined}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
-        <ThemeToggle />
-      </ul>
-      <button
-        class='navprinticon'
-        id='print-page'
-        type='button'
-        title='Skriv ut'
-        aria-label='Skriv ut'
-      >
-        <span class='material-icons' aria-hidden='true'>print</span>
-      </button>
+      <div class='nav-inner wrap'>
+        <a class='nav-brand' href='/'>PA Ulander</a>
+        <ul>
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  class:list={[
+                    'navButton',
+                    { navButton__active: isActive(link.url) },
+                  ]}
+                  aria-current={isActive(link.url) ? 'page' : undefined}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+          <ThemeToggle />
+          <li>
+            <button
+              class='navprinticon'
+              id='print-page'
+              type='button'
+              title='Skriv ut'
+              aria-label='Skriv ut'
+            >
+              <span class='material-icons' aria-hidden='true'>print</span>
+            </button>
+          </li>
+        </ul>
+      </div>
     </nav>
     <main
-      class='container'
+      id='main-content'
+      class:list={['container', contentClass]}
+      tabindex='-1'
       transition:name='content'
       transition:animate={fade({ duration: '160ms' })}
     >
       <slot />
     </main>
+    <SiteFooter />
     <script>
       document.addEventListener('astro:page-load', () => {
         document
-          .querySelector('#print-page')
-          ?.addEventListener('click', () => print())
+          .querySelectorAll('#print-page, [data-print]')
+          .forEach((button) => button.addEventListener('click', () => print()))
       })
     </script>
   </body>

@@ -45,9 +45,9 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
         <div class={headerStyles.cv_header_column1}>
           <Image
             src={portrait}
-            width={600}
+            width={260}
             alt='PA Ulander - Systemutvecklare & Webbutvecklare'
-            class='shadow-lined portrait'
+            class='portrait'
           />
         </div>
         <div class={headerStyles.cv_header_column2}>
@@ -109,9 +109,9 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
             </ul>
           </div>
           <div class='print-only'>
-            <b>Linkedin:</b> linkedin.com/in/paulander <br />
-            <b>Github:</b> github.com/pa-ulander <br />
-            <b>E-post:</b> pa@kabelkultur.se <br />
+            <b>Linkedin:</b> {site.social.linkedin.replace('https://', '')} <br />
+            <b>Github:</b> {site.social.github.replace('https://', '')} <br />
+            <b>E-post:</b> {site.social.email.replace('mailto:', '')} <br />
           </div>
         </div>
       </div>
@@ -150,8 +150,10 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
                 <div class={roleStyles.period}>{role.period}</div>
               )}
               <div class={roleStyles.summary} set:html={role.summary} />
-              <div class='tools' set:html={role.tools} />
-              <Tags tags={getToolTags(role)} />
+              <div>
+                <div class='tools' set:html={role.tools} />
+                <Tags tags={getToolTags(role)} />
+              </div>
             </div>
             <hr />
           </>
@@ -175,34 +177,23 @@ const getToolTags = (role: CvRole) => role.tooltags ?? []
   </section>
 </div>
 
-<script lang='ts'>
-  document.querySelectorAll('[data-print]').forEach((button) => {
-    button.addEventListener('click', () => print())
-  })
-</script>
-
 <style>
   .portrait {
+    display: block;
     width: 100%;
     height: auto;
-    border-radius: 5px;
   }
 
   .icon {
-    display: block;
-    font-size: 1.8rem;
+    font-size: 1.25rem;
+    color: var(--accent-color);
   }
 
   .print-link {
     padding: 0;
     border: 0;
-    color: var(--secondary-text-color);
     background: transparent;
     cursor: pointer;
     font: inherit;
-  }
-
-  .print-link:hover {
-    color: var(--primary-text-color);
   }
 </style>

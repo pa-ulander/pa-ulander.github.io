@@ -1,0 +1,24 @@
+---
+import { site } from '../config/site'
+
+const year = new Date().getFullYear()
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer-inner">
+      <div class="site-footer-cta">
+        <h2>Need a developer for your project?</h2>
+        <p>Tell me what you're building and I'll get back to you.</p>
+        <a class="button button-primary" href={site.social.email}>Hire me</a>
+      </div>
+      <ul class="site-footer-links" aria-label="Elsewhere">
+        <li><a href={site.social.email}>Email</a></li>
+        <li><a href={site.social.linkedin}>LinkedIn</a></li>
+        <li><a href={site.social.github}>GitHub</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </div>
+    <p class="site-footer-copy">&copy; {year} PA Ulander</p>
+  </div>
+</footer>

@@ -4,11 +4,9 @@ description: Fourth post meta description
 date: 2020-12-04
 featuredImage: ./image.jpeg
 featuredText: Fourth post featured text
-pageType: blog
 templateKey: blog-post
 published: true
 slug: fourth-post-has-bears
-path: /blog/fourth-post-has-bears
 tags:
   - dogs
   - post

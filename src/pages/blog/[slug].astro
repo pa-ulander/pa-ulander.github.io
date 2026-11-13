@@ -1,12 +1,11 @@
 ---
 import { Image } from 'astro:assets'
-import { getCollection, render, type CollectionEntry } from 'astro:content'
+import { render, type CollectionEntry } from 'astro:content'
+import { getPosts } from '../../posts'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('pages', ({ data }) =>
-    data.published && data.templateKey === 'blog-post'))
-    .sort((left, right) => (right.data.date?.getTime() ?? 0) - (left.data.date?.getTime() ?? 0))
+  const posts = await getPosts()
 
   return posts.map((post, index) => ({
     params: { slug: post.data.slug },
@@ -38,40 +37,51 @@ const formattedDate = post.data.date?.toLocaleDateString('en-GB', {
   description={post.data.description}
   image={post.data.featuredImage?.src}
 >
+  <header class="post-header" data-enter>
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1 class="post-heading">{post.data.title}</h1>
+    {post.data.featuredText && <p class="post-deck">{post.data.featuredText}</p>}
+  </header>
   {post.data.featuredImage && (
     <div class="featured-image">
       <Image
         src={post.data.featuredImage}
         alt={post.data.title}
-        class="featured-image-gatsby"
         width={1200}
-        height={630}
+        widths={[480, 800, 1200]}
+        sizes="(min-width: 1264px) 1152px, 94vw"
       />
     </div>
   )}
-  <h1 class="post-heading">{post.data.title}</h1>
-  {formattedDate && <p class="post-date">{formattedDate}</p>}
-  {post.data.featuredText && <p class="post-date">{post.data.featuredText}</p>}
-  <article class="post-body">
-    <Content />
-    {post.data.tags.length > 0 && (
-      <footer class="post-footer">
-        <div class="post-tags">
-          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-        </div>
-      </footer>
-    )}
-  </article>
-  <nav aria-label="Adjacent posts">
-    {previous && (
-      <a class="previous-next-button" href={`${previous.data.path}/`}>
-        {previous.data.title}
-      </a>
-    )}
-    {next && (
-      <a class="previous-next-button" href={`${next.data.path}/`}>
-        {next.data.title}
-      </a>
-    )}
-  </nav>
+  <div class="rail">
+    <aside class="post-meta" aria-label="Post details">
+      {formattedDate && (
+        <p><time datetime={post.data.date?.toISOString()}>{formattedDate}</time></p>
+      )}
+      {post.data.tags.length > 0 && (
+        <ul class="post-tags" aria-label="Tags">
+          {post.data.tags.map((tag) => <li class="tag">{tag}</li>)}
+        </ul>
+      )}
+    </aside>
+    <div class="post-main">
+      <article class="post-body">
+        <Content />
+      </article>
+      <nav class="post-navigation" aria-label="Adjacent posts">
+        {previous && (
+          <a class="previous-next-button" href={`/blog/${previous.data.slug}/`}>
+            <span class="post-navigation-label">Older post</span>
+            <span>{previous.data.title}</span>
+          </a>
+        )}
+        {next && (
+          <a class="previous-next-button post-navigation-next" href={`/blog/${next.data.slug}/`}>
+            <span class="post-navigation-label">Newer post</span>
+            <span>{next.data.title}</span>
+          </a>
+        )}
+      </nav>
+    </div>
+  </div>
 </BaseLayout>

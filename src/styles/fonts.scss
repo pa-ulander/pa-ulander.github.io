@@ -24,3 +24,21 @@
   src: url('@fontsource/roboto-slab/files/roboto-slab-latin-400-normal.woff2')
     format('woff2');
 }
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('@fontsource/open-sans/files/open-sans-latin-600-normal.woff2')
+    format('woff2');
+}

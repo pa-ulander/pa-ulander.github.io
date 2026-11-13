@@ -17,11 +17,18 @@ const formatDate = (date: Date | null) =>
 
 <div class="cards">
   {posts.map((post) => (
-    <a class="card-link" href={`${post.data.path}/`}>
+    <a class="card-link" href={`/blog/${post.data.slug}/`}>
       <article class="card">
         {post.data.featuredImage && (
           <div class="card-image-wrap">
-            <Image class="card-image" src={post.data.featuredImage} alt="" width={800} />
+            <Image
+              class="card-image"
+              src={post.data.featuredImage}
+              alt=""
+              width={800}
+              widths={[320, 480, 800]}
+              sizes="(min-width: 1000px) 360px, (min-width: 660px) 45vw, 90vw"
+            />
           </div>
         )}
         <h2 class="card-title">{post.data.title}</h2>

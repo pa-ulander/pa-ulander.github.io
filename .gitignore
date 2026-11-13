@@ -1,11 +1,19 @@
 node_modules
+test-results
 dist
 .github
 !.github/workflows
+.impeccable
+.taste-skill
 .astro
 .vscode
 .mcp.json
-test-results
+
+*.md
+!README.md
+
+# build output
+public
 
 # cache
 public

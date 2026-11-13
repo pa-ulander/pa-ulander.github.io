@@ -40,11 +40,6 @@ main.cv {
   height: 100%;
 }
 
-h1,
-h2 {
-  font-size: clamp(1.3rem, calc(-0.875rem + 8.333333vw), 1.6rem);
-  /* font-size: calc(16px + (36 - 16) * ((100vw - 320px) / (2560 - 320))); */
-}
 
 
 .header-margin {
